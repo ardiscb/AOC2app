@@ -11,6 +11,10 @@
 #import "baseClass.h"
 //import burgerClass that is the child of baseClass
 #import "burgerClass.h"
+//import saladClass - child of baseClass
+#import "saladClass.h"
+//import grilledChickenClass - child of baseClass
+#import "grilledChickenClass.h"
 
 @interface ViewController ()
 
@@ -26,34 +30,28 @@
     {
         //display name of creature(unicorn) console.log  
         [burgerFood printName];
+        [burgerFood printNumber];
         
-        //subClass class is using setAttributes method without having it in the subClass.h or subClass.m file
-        //every sub class of baseClass can use the setAttributes function as well as setting its details/variables
-        //don't use - define details in class (ie: subClass, UnicornCreature)
-//        [unicornCreature setAttributes:CREATURETYPE_UNICORN name:@"Unicorn" isMythical:true];
-        
-//        [unicornCreature setAttributes];
-        
-        //can't do this directly
-//        baseCreature->mythical = true;
     }
-//    baseClass *test = [[baseClass alloc] init];
-//    //instance method
-//    [test setTemp:4];
-//    
-//    //static method
-//    [baseClass printValue:3];
     
-//    baseClass *base = [[baseClass alloc] init];
-//    if(base != nil)
-//    {
-//        NSLog(@"temp=%d, nameString=%@", base->temp, base->nameString);
-//        //arrow operator
-//        base->temp = 45;
-//        base->nameString = @"in viewController";
-//        NSLog(@"temp=%d, nameString=%@", base->temp, base->nameString);
-//
-//    }
+    saladClass *saladFood = [[saladClass alloc] init];
+    if(saladFood != nil)
+    {
+        //display name of creature(unicorn) console.log
+        [saladFood printName];
+        [saladFood printNumber];
+        
+    }
+
+    grilledChickenClass *chickenFood = [[grilledChickenClass alloc] init];
+    if(chickenFood != nil)
+    {
+        //display name of creature(unicorn) console.log
+        [chickenFood printName];
+        [chickenFood printNumber];
+        
+    }
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }

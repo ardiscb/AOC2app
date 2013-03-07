@@ -14,7 +14,6 @@ typedef enum
     FOODTYPE_BURGER=0,
     FOODTYPE_SALAD,
     FOODTYPE_GRILLEDCHICKEN,
-    FOODTYPE_BACON
 } EFoodType;
 
 @interface baseClass : NSObject
@@ -32,5 +31,7 @@ typedef enum
 -(void)setAttributes:(EFoodType)type name:(NSString*)name number:(int)number;
 
 -(NSString*)printName;
+-(int)printNumber;
+
 
 @end

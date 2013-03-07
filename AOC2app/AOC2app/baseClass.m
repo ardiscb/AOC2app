@@ -25,6 +25,11 @@
     NSLog(@"Name=%@", foodName);
 }
 
+-(int)printNumber
+{
+    NSLog(@"Number eaten in a week =%d", numberInWeek);
+}
+
 -(void)setAttributes:(EFoodType)type name:(NSString*)name number:(int)number
 
 {

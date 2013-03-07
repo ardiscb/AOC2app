@@ -20,6 +20,8 @@
 		FA7D12FC16E57713005974EC /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7D12FA16E57713005974EC /* ViewController.xib */; };
 		FA7D130716E6D601005974EC /* baseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7D130616E6D601005974EC /* baseClass.m */; };
 		FA7D130D16E825E3005974EC /* burgerClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7D130C16E825E3005974EC /* burgerClass.m */; };
+		FA7D131016E8281B005974EC /* saladClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7D130F16E8281B005974EC /* saladClass.m */; };
+		FA7D131316E8295F005974EC /* grilledChickenClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7D131216E8295F005974EC /* grilledChickenClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,10 @@
 		FA7D130616E6D601005974EC /* baseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = baseClass.m; sourceTree = "<group>"; };
 		FA7D130B16E825E3005974EC /* burgerClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = burgerClass.h; sourceTree = "<group>"; };
 		FA7D130C16E825E3005974EC /* burgerClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = burgerClass.m; sourceTree = "<group>"; };
+		FA7D130E16E8281B005974EC /* saladClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = saladClass.h; sourceTree = "<group>"; };
+		FA7D130F16E8281B005974EC /* saladClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = saladClass.m; sourceTree = "<group>"; };
+		FA7D131116E8295E005974EC /* grilledChickenClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = grilledChickenClass.h; path = ../grilledChickenClass.h; sourceTree = "<group>"; };
+		FA7D131216E8295F005974EC /* grilledChickenClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = grilledChickenClass.m; path = ../grilledChickenClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,10 @@
 		FA7D12E616E57713005974EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FA7D131116E8295E005974EC /* grilledChickenClass.h */,
+				FA7D131216E8295F005974EC /* grilledChickenClass.m */,
+				FA7D130E16E8281B005974EC /* saladClass.h */,
+				FA7D130F16E8281B005974EC /* saladClass.m */,
 				FA7D130B16E825E3005974EC /* burgerClass.h */,
 				FA7D130C16E825E3005974EC /* burgerClass.m */,
 				FA7D130516E6D601005974EC /* baseClass.h */,
@@ -188,6 +198,8 @@
 				FA7D12F916E57713005974EC /* ViewController.m in Sources */,
 				FA7D130716E6D601005974EC /* baseClass.m in Sources */,
 				FA7D130D16E825E3005974EC /* burgerClass.m in Sources */,
+				FA7D131016E8281B005974EC /* saladClass.m in Sources */,
+				FA7D131316E8295F005974EC /* grilledChickenClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

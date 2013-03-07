@@ -1,15 +1,15 @@
 //
-//  burgerClass.m
+//  saladClass.m
 //  AOC2app
 //
 //  Created by Courtney Ardis on 3/6/13.
 //  Copyright (c) 2013 Courtney Ardis. All rights reserved.
 //
 
-#import "burgerClass.h"
+#import "saladClass.h"
 #import "baseClass.h"
 
-@implementation burgerClass
+@implementation saladClass
 //contains no setAttributes method
 
 //set values in sub class that is specific to that class
@@ -17,8 +17,9 @@
 {
     if(self = [super init])
     {
-        [self setAttributes:FOODTYPE_BURGER name:@"Burger" number:3];
+        [self setAttributes:FOODTYPE_SALAD name:@"Salad" number:2];
     }
     return self;
 }
+
 @end
