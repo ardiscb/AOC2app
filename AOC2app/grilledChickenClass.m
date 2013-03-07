@@ -17,7 +17,7 @@
 {
     if(self = [super init])
     {
-        [self setAttributes:FOODTYPE_GRILLEDCHICKEN name:@"Grilled Chicken" number:5];
+//        [self setAttributes:FOODTYPE_GRILLEDCHICKEN name:@"Grilled Chicken" number:5];
     }
     return self;
 }

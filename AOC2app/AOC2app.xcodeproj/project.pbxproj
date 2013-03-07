@@ -22,6 +22,7 @@
 		FA7D130D16E825E3005974EC /* burgerClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7D130C16E825E3005974EC /* burgerClass.m */; };
 		FA7D131016E8281B005974EC /* saladClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7D130F16E8281B005974EC /* saladClass.m */; };
 		FA7D131316E8295F005974EC /* grilledChickenClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7D131216E8295F005974EC /* grilledChickenClass.m */; };
+		FA7D131616E94743005974EC /* FoodFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7D131516E94743005974EC /* FoodFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,8 @@
 		FA7D130F16E8281B005974EC /* saladClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = saladClass.m; sourceTree = "<group>"; };
 		FA7D131116E8295E005974EC /* grilledChickenClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = grilledChickenClass.h; path = ../grilledChickenClass.h; sourceTree = "<group>"; };
 		FA7D131216E8295F005974EC /* grilledChickenClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = grilledChickenClass.m; path = ../grilledChickenClass.m; sourceTree = "<group>"; };
+		FA7D131416E94743005974EC /* FoodFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodFactory.h; sourceTree = "<group>"; };
+		FA7D131516E94743005974EC /* FoodFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +104,8 @@
 				FA7D12F816E57713005974EC /* ViewController.m */,
 				FA7D12FA16E57713005974EC /* ViewController.xib */,
 				FA7D12E616E57713005974EC /* Supporting Files */,
-			);
-			path = AOC2app;
-			sourceTree = "<group>";
-		};
-		FA7D12E616E57713005974EC /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
+				FA7D131416E94743005974EC /* FoodFactory.h */,
+				FA7D131516E94743005974EC /* FoodFactory.m */,
 				FA7D131116E8295E005974EC /* grilledChickenClass.h */,
 				FA7D131216E8295F005974EC /* grilledChickenClass.m */,
 				FA7D130E16E8281B005974EC /* saladClass.h */,
@@ -116,6 +114,13 @@
 				FA7D130C16E825E3005974EC /* burgerClass.m */,
 				FA7D130516E6D601005974EC /* baseClass.h */,
 				FA7D130616E6D601005974EC /* baseClass.m */,
+			);
+			path = AOC2app;
+			sourceTree = "<group>";
+		};
+		FA7D12E616E57713005974EC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				FA7D12E716E57713005974EC /* AOC2app-Info.plist */,
 				FA7D12E816E57713005974EC /* InfoPlist.strings */,
 				FA7D12EB16E57713005974EC /* main.m */,
@@ -200,6 +205,7 @@
 				FA7D130D16E825E3005974EC /* burgerClass.m in Sources */,
 				FA7D131016E8281B005974EC /* saladClass.m in Sources */,
 				FA7D131316E8295F005974EC /* grilledChickenClass.m in Sources */,
+				FA7D131616E94743005974EC /* FoodFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +326,7 @@
 				FA7D130116E57713005974EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

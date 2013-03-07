@@ -18,9 +18,10 @@ typedef enum
 
 @interface baseClass : NSObject
 {
-    //neither public nor private
+//neither public nor private
 @protected
-    EFoodType foodType;
+//    EFoodType foodType;
+    int foodType;
     NSString *foodName;
     
     int numberInWeek;
@@ -32,6 +33,7 @@ typedef enum
 
 -(NSString*)printName;
 -(int)printNumber;
-
+-(id)initWithDetails:(int)type name:(NSString*)name numFood:(int)numFood;
+-(void)printNameByType;
 
 @end

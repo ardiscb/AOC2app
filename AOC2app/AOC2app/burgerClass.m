@@ -21,4 +21,11 @@
     }
     return self;
 }
+
+-(void)printName
+{
+    //get base printName AND specific functionality printName
+    [super printName];
+    NSLog(@"This is the %@ class", foodName);
+}
 @end

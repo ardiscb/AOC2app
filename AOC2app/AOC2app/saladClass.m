@@ -17,7 +17,7 @@
 {
     if(self = [super init])
     {
-        [self setAttributes:FOODTYPE_SALAD name:@"Salad" number:2];
+//        [self setAttributes:FOODTYPE_SALAD name:@"Salad" number:2];
     }
     return self;
 }
