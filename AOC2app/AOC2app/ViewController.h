@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+//import all
+//#import "TextClass.h"
+
+//use only TextClass class
+@class baseClass;
 
 @interface ViewController : UIViewController
+{
+    
+}
+
 
 @end

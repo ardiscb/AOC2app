@@ -18,6 +18,8 @@
 		FA7D12F616E57713005974EC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7D12F516E57713005974EC /* Default-568h@2x.png */; };
 		FA7D12F916E57713005974EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7D12F816E57713005974EC /* ViewController.m */; };
 		FA7D12FC16E57713005974EC /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7D12FA16E57713005974EC /* ViewController.xib */; };
+		FA7D130716E6D601005974EC /* baseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7D130616E6D601005974EC /* baseClass.m */; };
+		FA7D130D16E825E3005974EC /* burgerClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7D130C16E825E3005974EC /* burgerClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,10 @@
 		FA7D12F716E57713005974EC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		FA7D12F816E57713005974EC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FA7D12FB16E57713005974EC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		FA7D130516E6D601005974EC /* baseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseClass.h; sourceTree = "<group>"; };
+		FA7D130616E6D601005974EC /* baseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = baseClass.m; sourceTree = "<group>"; };
+		FA7D130B16E825E3005974EC /* burgerClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = burgerClass.h; sourceTree = "<group>"; };
+		FA7D130C16E825E3005974EC /* burgerClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = burgerClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,10 @@
 		FA7D12E616E57713005974EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FA7D130B16E825E3005974EC /* burgerClass.h */,
+				FA7D130C16E825E3005974EC /* burgerClass.m */,
+				FA7D130516E6D601005974EC /* baseClass.h */,
+				FA7D130616E6D601005974EC /* baseClass.m */,
 				FA7D12E716E57713005974EC /* AOC2app-Info.plist */,
 				FA7D12E816E57713005974EC /* InfoPlist.strings */,
 				FA7D12EB16E57713005974EC /* main.m */,
@@ -176,6 +186,8 @@
 				FA7D12EC16E57713005974EC /* main.m in Sources */,
 				FA7D12F016E57713005974EC /* AppDelegate.m in Sources */,
 				FA7D12F916E57713005974EC /* ViewController.m in Sources */,
+				FA7D130716E6D601005974EC /* baseClass.m in Sources */,
+				FA7D130D16E825E3005974EC /* burgerClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
