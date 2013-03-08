@@ -27,51 +27,55 @@
 - (void)viewDidLoad
 {
     
-    //instance of factory
-    FoodFactory *foodFactory = [[FoodFactory alloc] init];
-    if(foodFactory != nil)
+    //LABELS
+    
+    //END LABELS
+    
+    //create burger   
+    baseClass *burger = [FoodFactory GetFood:BURGER];
+    burgerClass *burgerDetails = (burgerClass*)[FoodFactory createFood:BURGER];
+    //set number of patties
+    [burgerDetails setNumPatties:3];
+    
+    //create salad
+    baseClass *salad = [FoodFactory GetFood:SALAD];
+    
+    //create grilled chicken
+    baseClass *gChicken = [FoodFactory GetFood:GRILLEDCHICKEN];
+
+    
+//  instance of factory - no need for this when using a class method, like the ones above
+//  FoodFactory *foodFactory = [[FoodFactory alloc] init];
+    
+    if(burger != nil)
     {
         //print name of food(burger) by using the foodType and a factory
-        baseClass *burger = [foodFactory GetFood:0];
+//        baseClass *burger = [foodFactory GetFood:BURGER];
         [burger printNameByType];
         [burger printNumber];
         
+        NSString *advice = @"This is the advice I give you: Eat less burgers and set a goal";
+        [burger setAdvice:advice];
+        NSLog(@"%@", [burger advice]);
+        
+        [burgerDetails total];
+        
+        //calculate and log
+        [burgerDetails calculatePricePerWeek];
+    }
+    if(salad != nil)
+    {
         //print name of food(salad) by using the foodType and a factory
-        baseClass *salad = [foodFactory GetFood:1];
+//        baseClass *salad = [foodFactory GetFood:SALAD];
         [salad printNameByType];
         [salad printNumber];
-        
-        baseClass *gChicken = [foodFactory GetFood:2];
+    }
+    if(gChicken != nil)
+    {
+//        baseClass *gChicken = [foodFactory GetFood:GRILLEDCHICKEN];
         [gChicken printNameByType];
         [gChicken printNumber];
     }
-    
-//    burgerClass *burgerFood = [[burgerClass alloc] init];
-//    if(burgerFood != nil)
-//    {
-//        //display name of food console.log  
-//        [burgerFood printName];
-//        [burgerFood printNumber];
-//        
-//    }
-//    
-//    saladClass *saladFood = [[saladClass alloc] init];
-//    if(saladFood != nil)
-//    {
-//        //display name of food console.log
-//        [saladFood printName];
-//        [saladFood printNumber];
-//        
-//    }
-//
-//    grilledChickenClass *chickenFood = [[grilledChickenClass alloc] init];
-//    if(chickenFood != nil)
-//    {
-//        //display name of food console.log
-//        [chickenFood printName];
-//        [chickenFood printNumber];
-//        
-//    }
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.

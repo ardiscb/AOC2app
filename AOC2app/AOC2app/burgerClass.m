@@ -10,22 +10,26 @@
 #import "baseClass.h"
 
 @implementation burgerClass
-//contains no setAttributes method
+
+@synthesize numPatties, pricePerPatty;
 
 //set values in sub class that is specific to that class
 -(id)init
 {
     if(self = [super init])
     {
-        [self setAttributes:FOODTYPE_BURGER name:@"Burger" number:3];
+        [self setNumPatties:0];
+        [self setTotal:20];
+        [self setPricePerPatty:5];
     }
     return self;
 }
 
--(void)printName
+//override base values
+-(void)calculatePricePerWeek
 {
-    //get base printName AND specific functionality printName
-    [super printName];
-    NSLog(@"This is the %@ class", foodName);
+    [self setTotal:(numPatties * pricePerPatty)];
+    NSLog(@"You have spent %i dollars", self.total);
 }
+
 @end

@@ -10,7 +10,6 @@
 #import "baseClass.h"
 
 @implementation grilledChickenClass
-//contains no setAttributes method
 
 //set values in sub class that is specific to that class
 -(id)init

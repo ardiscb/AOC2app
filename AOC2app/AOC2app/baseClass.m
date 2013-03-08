@@ -8,6 +8,10 @@
 
 #import "baseClass.h"
 
+@interface baseClass ()
+
+@end
+
 @implementation baseClass
 
 -(id)initWithDetails:(int)type name:(NSString*)name numFood:(int)numFood
@@ -17,35 +21,33 @@
         foodType = type;
         foodName =name;
         numberInWeek = numFood;
+        
+        //initialize properties
+        [self setTotal:0];
+        [self setAdvice:nil];
+        
     }
     return self;
 
 }
 
--(NSString*)printName
+@synthesize total, advice;
+
+//calculation method to find the price spent per week on each food
+-(void)calculatePricePerWeek
 {
-    NSLog(@"Name=%@", foodName);
-    return foodName;
+    NSLog(@"You spent %d this week", total);
 }
 
 -(int)printNumber
 {
-    NSLog(@"Number eaten in a week =%d", numberInWeek);
+    NSLog(@"Number eaten in a week: %d", numberInWeek);
     return numberInWeek;
 }
 
 -(void)printNameByType
 {
-    NSLog(@"I am a %@", foodName);
+    NSLog(@"I am a %@ with a type of %i", foodName, foodType);
 }
-
--(void)setAttributes:(EFoodType)type name:(NSString*)name number:(int)number
-
-{
-    numberInWeek = number;
-    foodName = name;
-    foodType = type;
-}
-
 
 @end

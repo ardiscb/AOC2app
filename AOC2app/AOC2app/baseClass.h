@@ -20,20 +20,21 @@ typedef enum
 {
 //neither public nor private
 @protected
-//    EFoodType foodType;
     int foodType;
     NSString *foodName;
     
     int numberInWeek;
-    
 }
 
-//used by burgerClass
--(void)setAttributes:(EFoodType)type name:(NSString*)name number:(int)number;
+//properties
+@property (assign) NSString *advice;
+@property int total;
+@property int pricePerFood;
 
--(NSString*)printName;
+//used by subclasses
 -(int)printNumber;
 -(id)initWithDetails:(int)type name:(NSString*)name numFood:(int)numFood;
 -(void)printNameByType;
+-(void)calculatePricePerWeek;
 
 @end

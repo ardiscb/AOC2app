@@ -10,6 +10,8 @@
 #import "baseClass.h"
 
 @interface burgerClass : baseClass
--(void)printName;
+
+@property int numPatties;
+@property int pricePerPatty;
 
 @end

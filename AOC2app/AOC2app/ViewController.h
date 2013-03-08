@@ -7,15 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-//import all
-//#import "TextClass.h"
+//import factory
+#import "FoodFactory.h"
 
-//use only TextClass class
+
 @class baseClass;
 
 @interface ViewController : UIViewController
 {
-    
+    UILabel *burgerLabel,
+            *burgerCustom,
+            *saladLabel,
+            *saladCustom,
+            *gChickenLabel,
+            *gChickenCustom;
 }
 
 

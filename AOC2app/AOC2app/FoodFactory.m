@@ -10,6 +10,7 @@
 #import "baseClass.h"
 
 @implementation FoodFactory
+
 -(id)init
 {
     if(self =[super init])
@@ -17,24 +18,41 @@
         
     }
     return self;
-    
+      
 }
 
 //get food name by using foodType
--(baseClass*)GetFood:(int)foodType
+//change - to + to change an instance method to a class method to avoid the need to instantiate the factory class
++(baseClass*)GetFood:(int)foodType
 {
-    if (foodType == 0) {
-        return [[baseClass alloc] initWithDetails:0 name:@"burger" numFood:3];
+    if (foodType == BURGER) {
+        return [[baseClass alloc] initWithDetails:BURGER name:@"burger" numFood:3];
     }
-    else if(foodType == 1)
+    else if(foodType == SALAD)
     {
-        return [[baseClass alloc] initWithDetails:1 name:@"salad" numFood:5];
+        return [[baseClass alloc] initWithDetails:SALAD name:@"salad" numFood:5];
     }
     else
     {
-        return [[baseClass alloc] initWithDetails:2 name:@"grilledchicken" numFood:2];
+        return [[baseClass alloc] initWithDetails:GRILLEDCHICKEN name:@"grilledchicken" numFood:2];
     }
     return nil;
+}
++(baseClass*)createFood:(int)foodType
+{
+    if (foodType == BURGER)
+    {
+        return [[burgerClass alloc] init];
+    }
+    else if (foodType == SALAD)
+    {
+        return [[saladClass alloc] init];
+    }
+    else if (foodType == GRILLEDCHICKEN)
+    {
+        return [[grilledChickenClass alloc] init];
+    }
+    else return nil;
 }
 
 @end
