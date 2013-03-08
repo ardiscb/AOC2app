@@ -11,5 +11,7 @@
 
 @interface saladClass : baseClass
 
+@property int numCroutons;
+@property int amtDressingInCups;
 
 @end

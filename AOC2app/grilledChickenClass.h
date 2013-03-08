@@ -11,5 +11,7 @@
 
 @interface grilledChickenClass : baseClass
 
+@property int ounces;
+@property int numPiecesOfChicken;
 
 @end

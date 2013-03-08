@@ -29,7 +29,6 @@ typedef enum
 //properties
 @property (assign) NSString *advice;
 @property int total;
-@property int pricePerFood;
 
 //used by subclasses
 -(int)printNumber;

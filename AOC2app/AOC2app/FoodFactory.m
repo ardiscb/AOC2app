@@ -32,7 +32,7 @@
     {
         return [[baseClass alloc] initWithDetails:SALAD name:@"salad" numFood:5];
     }
-    else
+    else if (foodType == GRILLEDCHICKEN)
     {
         return [[baseClass alloc] initWithDetails:GRILLEDCHICKEN name:@"grilledchicken" numFood:2];
     }
