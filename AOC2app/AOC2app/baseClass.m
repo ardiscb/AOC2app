@@ -39,12 +39,13 @@
     NSLog(@"You spent %d this week", total);
 }
 
+//print number in a week for debugging
 -(int)printNumber
 {
     NSLog(@"Number eaten in a week: %d", numberInWeek);
     return numberInWeek;
 }
-
+//print name for debugging
 -(void)printNameByType
 {
     NSLog(@"I am a %@ with a type of %i", foodName, foodType);

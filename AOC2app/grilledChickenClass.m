@@ -18,6 +18,7 @@
 {
     if(self = [super init])
     {
+        //set default values for grilled chicken
         [self setOunces:0];
         [self setNumPiecesOfChicken:2];
         [self setTotal:20];
@@ -25,8 +26,11 @@
     return self;
 }
 
+//calculate price per week paid for grilled chicken
 -(void)calculatePricePerWeek
 {
+    //set total
+    //multiply number of pieces of chick by ounces
     [self setTotal:(numPiecesOfChicken * ounces)];
     NSLog(@"You have spent %i dollars", self.total);
 }

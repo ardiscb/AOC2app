@@ -26,7 +26,7 @@ typedef enum
     int numberInWeek;
 }
 
-//properties
+//class properties
 @property (assign) NSString *advice;
 @property int total;
 

@@ -18,14 +18,19 @@
 {
     if(self = [super init])
     {
+        //set default values for salad
         [self setNumCroutons:0];
         [self setAmtDressingInCups:2];
         [self setTotal:20];
     }
     return self;
 }
+
+//calculate price per week paid for salad
 -(void)calculatePricePerWeek
 {
+    //set total
+    //multiply number of croutons by cups of dressing
     [self setTotal:(numCroutons * amtDressingInCups)];
     NSLog(@"You have spent %i dollars", self.total);
 }

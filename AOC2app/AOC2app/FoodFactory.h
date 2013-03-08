@@ -22,6 +22,8 @@ typedef enum{
     GRILLEDCHICKEN
 } myFood;
 @interface FoodFactory : NSObject
+
 +(baseClass*)GetFood:(int)foodType;
 +(baseClass*)createFood:(int)foodType;
+
 @end

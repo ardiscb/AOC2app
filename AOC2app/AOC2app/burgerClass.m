@@ -18,6 +18,7 @@
 {
     if(self = [super init])
     {
+        //set default values for burger
         [self setNumPatties:0];
         [self setTotal:20];
         [self setPricePerPatty:5];
@@ -26,8 +27,11 @@
 }
 
 //override base values
+//calculate price per week paid for grilled chicken
 -(void)calculatePricePerWeek
 {
+    //set total
+    //multiply number of patties by price per patty
     [self setTotal:(numPatties * pricePerPatty)];
     NSLog(@"You have spent %i dollars", self.total);
 }

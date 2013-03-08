@@ -38,6 +38,8 @@
     }
     return nil;
 }
+
+//create food instance
 +(baseClass*)createFood:(int)foodType
 {
     if (foodType == BURGER)

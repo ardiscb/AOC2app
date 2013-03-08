@@ -53,10 +53,11 @@
     if(burger != nil)
     {
         //print name of food(burger) by using the foodType and a factory
-//        baseClass *burger = [foodFactory GetFood:BURGER];
+        //baseClass *burger = [foodFactory GetFood:BURGER];
         [burger printNameByType];
         [burger printNumber];
         
+        //set burger advice
         NSString *burgerAdvice = @"Advice: Eat less burgers";
         [burger setAdvice:burgerAdvice];
         NSLog(@"%@", [burger advice]);
@@ -73,6 +74,7 @@
         [salad printNameByType];
         [salad printNumber];
         
+        //set salad advice
         NSString *saladAdvice = @"Advice: Eat more salads!";
         [salad setAdvice:saladAdvice];
         NSLog(@"%@", [salad advice]);
@@ -87,6 +89,7 @@
         [gChicken printNameByType];
         [gChicken printNumber];
         
+        //set grilled chicken advice
         NSString *gChickenAdvice = @"Advice: Eat a moderate amount of chicken. :)";
         [gChicken setAdvice:gChickenAdvice];
         NSLog(@"%@", [gChicken advice]);
@@ -104,7 +107,7 @@
         burgerLabel.numberOfLines = 2;
 //        burgerLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
-    //custom
+    //BURGER custom
     burgerCustom = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 60.0f, 300.0f, 45.0f)];
     if(burgerCustom != nil)
     {
@@ -118,7 +121,7 @@
         saladLabel.text = [NSString stringWithFormat:@"I hope you enjoyed your salad with %d croutons and %d cup of dressing.", [saladDetails numCroutons], [saladDetails amtDressingInCups]];
         saladLabel.numberOfLines = 2;
     }
-    //custom
+    //SALAD custom
     saladCustom = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 160.0f, 300.0f, 25.0f)];
     if(saladCustom != nil)
     {
@@ -132,7 +135,7 @@
         gChickenLabel.text = [NSString stringWithFormat:@"I hope your %d piece %d ounce grilled chicken was delicious.", [gChickenDetails numPiecesOfChicken], [gChickenDetails ounces]];
         gChickenLabel.numberOfLines = 2;
     }
-    //custom
+    //GRILLED CHICKEN custom
     gChickenCustom = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 240.0f, 300.0f, 45.0f)];
     if(gChickenCustom != nil)
     {
