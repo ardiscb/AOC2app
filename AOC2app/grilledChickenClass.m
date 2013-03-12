@@ -21,7 +21,6 @@
         //set default values for grilled chicken
         [self setOunces:0];
         [self setNumPiecesOfChicken:2];
-        [self setTotal:20];
     }
     return self;
 }

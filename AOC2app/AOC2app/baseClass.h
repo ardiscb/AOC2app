@@ -33,7 +33,6 @@ typedef enum
 //used by subclasses
 -(int)printNumber;
 -(id)initWithDetails:(int)type name:(NSString*)name numFood:(int)numFood;
--(void)printNameByType;
 -(void)calculatePricePerWeek;
 
 @end

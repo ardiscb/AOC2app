@@ -20,7 +20,6 @@
     {
         //set default values for burger
         [self setNumPatties:0];
-        [self setTotal:20];
         [self setPricePerPatty:5];
     }
     return self;

@@ -7,14 +7,6 @@
 //
 
 #import "ViewController.h"
-//import class
-#import "baseClass.h"
-//import burgerClass that is the child of baseClass
-#import "burgerClass.h"
-//import saladClass - child of baseClass
-#import "saladClass.h"
-//import grilledChickenClass - child of baseClass
-#import "grilledChickenClass.h"
 //import FoodFactory - factory
 #import "FoodFactory.h"
 
@@ -28,20 +20,21 @@
 {
     
     //create burger   
-    baseClass *burger = [FoodFactory GetFood:BURGER];
+//    baseClass *burger = [FoodFactory GetFood:BURGER];
+    
     burgerClass *burgerDetails = (burgerClass*)[FoodFactory createFood:BURGER];
     //set number of patties
     [burgerDetails setNumPatties:3];
     
     //create salad
-    baseClass *salad = [FoodFactory GetFood:SALAD];
+//    baseClass *salad = [FoodFactory GetFood:SALAD];
     saladClass *saladDetails = (saladClass*)[FoodFactory createFood:SALAD];
     //set numCroutons and amtDressingInCups
     [saladDetails setNumCroutons:4];
     [saladDetails setAmtDressingInCups:1];
     
     //create grilled chicken
-    baseClass *gChicken = [FoodFactory GetFood:GRILLEDCHICKEN];
+//    baseClass *gChicken = [FoodFactory GetFood:GRILLEDCHICKEN];
     grilledChickenClass *gChickenDetails = (grilledChickenClass*)[FoodFactory createFood:GRILLEDCHICKEN];
     //set ounces of chicken
     [gChickenDetails setOunces:8];
@@ -50,49 +43,46 @@
 //  instance of factory - no need for this when using a class method, like the ones above
 //  FoodFactory *foodFactory = [[FoodFactory alloc] init];
     
-    if(burger != nil)
+    if(burgerDetails != nil)
     {
         //print name of food(burger) by using the foodType and a factory
         //baseClass *burger = [foodFactory GetFood:BURGER];
-        [burger printNameByType];
-        [burger printNumber];
+        [burgerDetails printNumber];
         
         //set burger advice
         NSString *burgerAdvice = @"Advice: Eat less burgers";
-        [burger setAdvice:burgerAdvice];
-        NSLog(@"%@", [burger advice]);
+        [burgerDetails setAdvice:burgerAdvice];
+        NSLog(@"%@", [burgerDetails advice]);
         
         [burgerDetails total];
         
         //calculate and log
         [burgerDetails calculatePricePerWeek];
     }
-    if(salad != nil)
+    if(saladDetails != nil)
     {
         //print name of food(salad) by using the foodType and a factory
 //        baseClass *salad = [foodFactory GetFood:SALAD];
-        [salad printNameByType];
-        [salad printNumber];
+        [saladDetails printNumber];
         
         //set salad advice
         NSString *saladAdvice = @"Advice: Eat more salads!";
-        [salad setAdvice:saladAdvice];
-        NSLog(@"%@", [salad advice]);
+        [saladDetails setAdvice:saladAdvice];
+        NSLog(@"%@", [saladDetails advice]);
         
         [saladDetails total];
         //calculate and log
         [saladDetails calculatePricePerWeek];
     }
-    if(gChicken != nil)
+    if(gChickenDetails != nil)
     {
 //        baseClass *gChicken = [foodFactory GetFood:GRILLEDCHICKEN];
-        [gChicken printNameByType];
-        [gChicken printNumber];
+        [gChickenDetails printNumber];
         
         //set grilled chicken advice
         NSString *gChickenAdvice = @"Advice: Eat a moderate amount of chicken. :)";
-        [gChicken setAdvice:gChickenAdvice];
-        NSLog(@"%@", [gChicken advice]);
+        [gChickenDetails setAdvice:gChickenAdvice];
+        NSLog(@"%@", [gChickenDetails advice]);
         
         [gChickenDetails total];
         //calculate and log
@@ -111,7 +101,7 @@
     burgerCustom = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 60.0f, 300.0f, 45.0f)];
     if(burgerCustom != nil)
     {
-        burgerCustom.text = [NSString stringWithFormat:@"It cost you $%d. %@", [burgerDetails total], [burger advice]];
+        burgerCustom.text = [NSString stringWithFormat:@"It cost you $%d. %@", [burgerDetails total], [burgerDetails advice]];
         burgerCustom.numberOfLines = 3;
     }
     
@@ -125,7 +115,7 @@
     saladCustom = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 160.0f, 300.0f, 25.0f)];
     if(saladCustom != nil)
     {
-        saladCustom.text = [NSString stringWithFormat:@"It cost you $%d. %@", [saladDetails total], [salad advice]];
+        saladCustom.text = [NSString stringWithFormat:@"It cost you $%d. %@", [saladDetails total], [saladDetails advice]];
         saladCustom.numberOfLines = 2;
     }
     
@@ -139,7 +129,7 @@
     gChickenCustom = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 240.0f, 300.0f, 45.0f)];
     if(gChickenCustom != nil)
     {
-        gChickenCustom.text = [NSString stringWithFormat:@"It cost you $%d. %@", [gChickenDetails total], [gChicken advice]];
+        gChickenCustom.text = [NSString stringWithFormat:@"It cost you $%d. %@", [gChickenDetails total], [gChickenDetails advice]];
         gChickenCustom.numberOfLines = 2;
     }
     

@@ -21,7 +21,6 @@
         //set default values for salad
         [self setNumCroutons:0];
         [self setAmtDressingInCups:2];
-        [self setTotal:20];
     }
     return self;
 }

@@ -11,34 +11,6 @@
 
 @implementation FoodFactory
 
--(id)init
-{
-    if(self =[super init])
-    {
-        
-    }
-    return self;
-      
-}
-
-//get food name by using foodType
-//change - to + to change an instance method to a class method to avoid the need to instantiate the factory class
-+(baseClass*)GetFood:(int)foodType
-{
-    if (foodType == BURGER) {
-        return [[baseClass alloc] initWithDetails:BURGER name:@"burger" numFood:3];
-    }
-    else if(foodType == SALAD)
-    {
-        return [[baseClass alloc] initWithDetails:SALAD name:@"salad" numFood:5];
-    }
-    else if (foodType == GRILLEDCHICKEN)
-    {
-        return [[baseClass alloc] initWithDetails:GRILLEDCHICKEN name:@"grilledchicken" numFood:2];
-    }
-    return nil;
-}
-
 //create food instance
 +(baseClass*)createFood:(int)foodType
 {

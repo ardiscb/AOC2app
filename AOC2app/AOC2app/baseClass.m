@@ -45,10 +45,5 @@
     NSLog(@"Number eaten in a week: %d", numberInWeek);
     return numberInWeek;
 }
-//print name for debugging
--(void)printNameByType
-{
-    NSLog(@"I am a %@ with a type of %i", foodName, foodType);
-}
 
 @end

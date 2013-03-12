@@ -12,10 +12,6 @@
 #import "saladClass.h"
 #import "grilledChickenClass.h"
 
-//#define BURGER 0
-//#define SALAD 1
-//#define GRILLEDCHICKEN 2
-
 typedef enum{
     BURGER =0,
     SALAD,
@@ -23,7 +19,6 @@ typedef enum{
 } myFood;
 @interface FoodFactory : NSObject
 
-+(baseClass*)GetFood:(int)foodType;
 +(baseClass*)createFood:(int)foodType;
 
 @end
