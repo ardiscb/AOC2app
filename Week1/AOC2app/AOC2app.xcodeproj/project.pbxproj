@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA047FAE16EFD72B00F9A27F /* TopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA047FAD16EFD72B00F9A27F /* TopView.xib */; };
+		FA047FB116EFD74B00F9A27F /* TopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA047FB016EFD74B00F9A27F /* TopViewController.m */; };
 		FA7D12E016E57713005974EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7D12DF16E57713005974EC /* UIKit.framework */; };
 		FA7D12E216E57713005974EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7D12E116E57713005974EC /* Foundation.framework */; };
 		FA7D12E416E57713005974EC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7D12E316E57713005974EC /* CoreGraphics.framework */; };
@@ -26,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA047FAD16EFD72B00F9A27F /* TopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopView.xib; sourceTree = "<group>"; };
+		FA047FAF16EFD74B00F9A27F /* TopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopViewController.h; sourceTree = "<group>"; };
+		FA047FB016EFD74B00F9A27F /* TopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopViewController.m; sourceTree = "<group>"; };
 		FA7D12DC16E57713005974EC /* AOC2app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AOC2app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7D12DF16E57713005974EC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FA7D12E116E57713005974EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -40,7 +45,7 @@
 		FA7D12F316E57713005974EC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		FA7D12F516E57713005974EC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA7D12F716E57713005974EC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FA7D12F816E57713005974EC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FA7D12F816E57713005974EC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = "../../../../Users/CourtneyArdis/Documents/Apple Programming_Objective C II/AOC2app/AOC2app/AOC2app/ViewController.m"; sourceTree = DEVELOPER_DIR; };
 		FA7D12FB16E57713005974EC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		FA7D130516E6D601005974EC /* baseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseClass.h; sourceTree = "<group>"; };
 		FA7D130616E6D601005974EC /* baseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = baseClass.m; sourceTree = "<group>"; };
@@ -114,6 +119,9 @@
 				FA7D130C16E825E3005974EC /* burgerClass.m */,
 				FA7D130516E6D601005974EC /* baseClass.h */,
 				FA7D130616E6D601005974EC /* baseClass.m */,
+				FA047FAD16EFD72B00F9A27F /* TopView.xib */,
+				FA047FAF16EFD74B00F9A27F /* TopViewController.h */,
+				FA047FB016EFD74B00F9A27F /* TopViewController.m */,
 			);
 			path = AOC2app;
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 				FA7D12F416E57713005974EC /* Default@2x.png in Resources */,
 				FA7D12F616E57713005974EC /* Default-568h@2x.png in Resources */,
 				FA7D12FC16E57713005974EC /* ViewController.xib in Resources */,
+				FA047FAE16EFD72B00F9A27F /* TopView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +215,7 @@
 				FA7D131016E8281B005974EC /* saladClass.m in Sources */,
 				FA7D131316E8295F005974EC /* grilledChickenClass.m in Sources */,
 				FA7D131616E94743005974EC /* FoodFactory.m in Sources */,
+				FA047FB116EFD74B00F9A27F /* TopViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
