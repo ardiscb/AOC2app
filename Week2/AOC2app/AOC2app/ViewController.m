@@ -78,11 +78,22 @@
 
 }
 
+//on close of modal view; replace what was in the text box in the nameLabel on main view 
 -(void)DidClose:(NSString*)nameString
 {
     nameLabel.text = nameString;
 }
-
+//as the stepper changes, update the textField
+-(IBAction)onChange:(id)sender
+{
+    UIStepper *stepControl = (UIStepper*) sender;
+    if(stepControl != nil)
+    {
+        int currentValue = stepControl.value;
+        result.text = [NSString stringWithFormat:@"Step value = %d", currentValue];
+        NSLog(@"Step value = %d", currentValue);
+    }
+}
 - (void)viewDidLoad
 {
     //create info button

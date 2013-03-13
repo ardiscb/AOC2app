@@ -22,9 +22,10 @@
                       *saladBtn,
                       *gChickBtn;
     IBOutlet UIButton *infoBtn;
+    IBOutlet UIStepper *stepper;
 
 }
 
 -(IBAction)onClick:(id)sender;
-
+-(IBAction)onChange:(id)sender;
 @end

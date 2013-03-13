@@ -25,6 +25,7 @@
 		FA7D131016E8281B005974EC /* saladClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7D130F16E8281B005974EC /* saladClass.m */; };
 		FA7D131316E8295F005974EC /* grilledChickenClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7D131216E8295F005974EC /* grilledChickenClass.m */; };
 		FA7D131616E94743005974EC /* FoodFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7D131516E94743005974EC /* FoodFactory.m */; };
+		FAFBD9D116F027370049D0C9 /* profilepicture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAFBD9D016F027370049D0C9 /* profilepicture.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		FA7D131216E8295F005974EC /* grilledChickenClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = grilledChickenClass.m; path = ../grilledChickenClass.m; sourceTree = "<group>"; };
 		FA7D131416E94743005974EC /* FoodFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodFactory.h; sourceTree = "<group>"; };
 		FA7D131516E94743005974EC /* FoodFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodFactory.m; sourceTree = "<group>"; };
+		FAFBD9D016F027370049D0C9 /* profilepicture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = profilepicture.jpg; path = ../../../../../../Pictures/Photos/profilepicture.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 		FA7D12E616E57713005974EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FAFBD9D016F027370049D0C9 /* profilepicture.jpg */,
 				FA7D12E716E57713005974EC /* AOC2app-Info.plist */,
 				FA7D12E816E57713005974EC /* InfoPlist.strings */,
 				FA7D12EB16E57713005974EC /* main.m */,
@@ -197,6 +200,7 @@
 				FA7D12F616E57713005974EC /* Default-568h@2x.png in Resources */,
 				FA7D12FC16E57713005974EC /* ViewController.xib in Resources */,
 				FA047FAE16EFD72B00F9A27F /* TopView.xib in Resources */,
+				FAFBD9D116F027370049D0C9 /* profilepicture.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

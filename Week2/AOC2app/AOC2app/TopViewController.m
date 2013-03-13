@@ -25,11 +25,11 @@
     return self;
 }
 //clear text field of default text
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    textField.text = @"";
-    return true;
-}
+//-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+//{
+//    textField.text = @"";
+//    return true;
+//}
 
 -(IBAction)onClose:(id)sender
 {
