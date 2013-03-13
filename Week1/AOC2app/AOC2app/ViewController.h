@@ -9,22 +9,17 @@
 #import <UIKit/UIKit.h>
 //import factory
 #import "FoodFactory.h"
-#import "TopViewController.h"
-
 
 @class baseClass;
 
-@interface ViewController : UIViewController <TopViewDelegate>
+@interface ViewController : UIViewController
 {
-//    UILabel *burgerLabel,
-//            *burgerCustom,
-//            *saladLabel,
-//            *saladCustom,
-//            *gChickenLabel,
-//            *gChickenCustom;
-    IBOutlet UILabel *nameLabel;
+    UILabel *burgerLabel,
+            *burgerCustom,
+            *saladLabel,
+            *saladCustom,
+            *gChickenLabel,
+            *gChickenCustom;
 }
-
--(IBAction)onClick:(id)sender;
 
 @end

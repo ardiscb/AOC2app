@@ -9,34 +9,13 @@
 #import "ViewController.h"
 //import FoodFactory - factory
 #import "FoodFactory.h"
-//import TopViewController.h
-#import "TopViewController.h"
+
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
-
--(IBAction)onClick:(id)sender
-{
-    TopViewController *topView = [[TopViewController alloc] initWithNibName:@"TopView" bundle:nil];
-    if(topView != nil)
-    {
-        topView.delegate = self;
-        //Depreciated
-        //Use this instead somehow:
-        //- (void)presentViewController:(UIViewController *)viewControllerToPresent animated:
-        //(BOOL)flag completion:(void (^)(void))completion NS_AVAILABLE_IOS(5_0);
-//        [self presentViewController:(UIViewController *)topView animated:true];
-        [self presentModalViewController:topView animated:true];
-    }
-}
-
--(void)DidClose:(NSString*)nameString
-{
-    nameLabel.text = nameString;
-}
 
 - (void)viewDidLoad
 {
@@ -112,56 +91,56 @@
     }
     
     //LABELS
-//    burgerLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 300.0f, 45.0f)];
-//    if(burgerLabel != nil)
-//    {
-//        burgerLabel.text = [NSString stringWithFormat:@"Your burger has %d patties at $%d per patty", [burgerDetails numPatties], [burgerDetails pricePerPatty]];
-//        burgerLabel.numberOfLines = 2;
-////        burgerLabel.lineBreakMode = NSLineBreakByWordWrapping;
-//    }
-//    //BURGER custom
-//    burgerCustom = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 60.0f, 300.0f, 45.0f)];
-//    if(burgerCustom != nil)
-//    {
-//        burgerCustom.text = [NSString stringWithFormat:@"It cost you $%d. %@", [burgerDetails total], [burgerDetails advice]];
-//        burgerCustom.numberOfLines = 3;
-//    }
-//    
-//    saladLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 110.0f, 300.0f, 45.0f)];
-//    if(saladLabel != nil)
-//    {
-//        saladLabel.text = [NSString stringWithFormat:@"I hope you enjoyed your salad with %d croutons and %d cup of dressing.", [saladDetails numCroutons], [saladDetails amtDressingInCups]];
-//        saladLabel.numberOfLines = 2;
-//    }
-//    //SALAD custom
-//    saladCustom = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 160.0f, 300.0f, 25.0f)];
-//    if(saladCustom != nil)
-//    {
-//        saladCustom.text = [NSString stringWithFormat:@"It cost you $%d. %@", [saladDetails total], [saladDetails advice]];
-//        saladCustom.numberOfLines = 2;
-//    }
-//    
-//    gChickenLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 190.0f, 300.0f, 45.0f)];
-//    if(gChickenLabel != nil)
-//    {
-//        gChickenLabel.text = [NSString stringWithFormat:@"I hope your %d piece %d ounce grilled chicken was delicious.", [gChickenDetails numPiecesOfChicken], [gChickenDetails ounces]];
-//        gChickenLabel.numberOfLines = 2;
-//    }
-//    //GRILLED CHICKEN custom
-//    gChickenCustom = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 240.0f, 300.0f, 45.0f)];
-//    if(gChickenCustom != nil)
-//    {
-//        gChickenCustom.text = [NSString stringWithFormat:@"It cost you $%d. %@", [gChickenDetails total], [gChickenDetails advice]];
-//        gChickenCustom.numberOfLines = 2;
-//    }
+    burgerLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 300.0f, 45.0f)];
+    if(burgerLabel != nil)
+    {
+        burgerLabel.text = [NSString stringWithFormat:@"Your burger has %d patties at $%d per patty", [burgerDetails numPatties], [burgerDetails pricePerPatty]];
+        burgerLabel.numberOfLines = 2;
+//        burgerLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    }
+    //BURGER custom
+    burgerCustom = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 60.0f, 300.0f, 45.0f)];
+    if(burgerCustom != nil)
+    {
+        burgerCustom.text = [NSString stringWithFormat:@"It cost you $%d. %@", [burgerDetails total], [burgerDetails advice]];
+        burgerCustom.numberOfLines = 3;
+    }
+    
+    saladLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 110.0f, 300.0f, 45.0f)];
+    if(saladLabel != nil)
+    {
+        saladLabel.text = [NSString stringWithFormat:@"I hope you enjoyed your salad with %d croutons and %d cup of dressing.", [saladDetails numCroutons], [saladDetails amtDressingInCups]];
+        saladLabel.numberOfLines = 2;
+    }
+    //SALAD custom
+    saladCustom = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 160.0f, 300.0f, 25.0f)];
+    if(saladCustom != nil)
+    {
+        saladCustom.text = [NSString stringWithFormat:@"It cost you $%d. %@", [saladDetails total], [saladDetails advice]];
+        saladCustom.numberOfLines = 2;
+    }
+    
+    gChickenLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 190.0f, 300.0f, 45.0f)];
+    if(gChickenLabel != nil)
+    {
+        gChickenLabel.text = [NSString stringWithFormat:@"I hope your %d piece %d ounce grilled chicken was delicious.", [gChickenDetails numPiecesOfChicken], [gChickenDetails ounces]];
+        gChickenLabel.numberOfLines = 2;
+    }
+    //GRILLED CHICKEN custom
+    gChickenCustom = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 240.0f, 300.0f, 45.0f)];
+    if(gChickenCustom != nil)
+    {
+        gChickenCustom.text = [NSString stringWithFormat:@"It cost you $%d. %@", [gChickenDetails total], [gChickenDetails advice]];
+        gChickenCustom.numberOfLines = 2;
+    }
     
     //add labels to view
-//    [self.view addSubview:burgerLabel];
-//    [self.view addSubview:burgerCustom];
-//    [self.view addSubview:saladLabel];
-//    [self.view addSubview:saladCustom];
-//    [self.view addSubview:gChickenLabel];
-//    [self.view addSubview:gChickenCustom];
+    [self.view addSubview:burgerLabel];
+    [self.view addSubview:burgerCustom];
+    [self.view addSubview:saladLabel];
+    [self.view addSubview:saladCustom];
+    [self.view addSubview:gChickenLabel];
+    [self.view addSubview:gChickenCustom];
     //END LABELS
     
     [super viewDidLoad];
