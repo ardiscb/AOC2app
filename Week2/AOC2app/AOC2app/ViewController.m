@@ -12,7 +12,13 @@
 //import TopViewController.h
 #import "TopViewController.h"
 
-#define BUTTON_SEVEN 7
+#define BURGER_BUTTON 0
+#define SALAD_BUTTON 1
+#define GCHICK_BUTTON 2
+#define STEPPER 4
+#define CAL_BUTTON 5
+#define SEGMENT 6
+#define INFO_BUTTON 7
 @interface ViewController ()
 
 @end
@@ -25,7 +31,7 @@
     UIButton *button = (UIButton*)sender;
     if(button != nil)
     {
-        if(button.tag == 0)
+        if(button.tag == BURGER_BUTTON)
         {
             burgerBtn.enabled = false;
             burgerBtn.highlighted = true;
@@ -33,7 +39,7 @@
             gChickBtn.enabled = true;
             NSLog(@"you pressed burger");
         }
-        else if(button.tag ==1)
+        else if(button.tag == SALAD_BUTTON)
         {
             burgerBtn.enabled = true;
             saladBtn.enabled = false;
@@ -41,7 +47,7 @@
             NSLog(@"you pressed salad");
             
         }
-        else if(button.tag ==2)
+        else if(button.tag == GCHICK_BUTTON)
         {
             burgerBtn.enabled = true;
             saladBtn.enabled = true;
@@ -54,12 +60,12 @@
             NSLog(@"you clicked in the text field ");
             
         }
-        else if(button.tag == 4)
+        else if(button.tag == CAL_BUTTON)
         {
             NSLog(@"you pressed calculate");
             
         }
-        else if(button.tag == 7)
+        else if(button.tag == INFO_BUTTON)
         {
             //if you click on topview (info button)
             TopViewController *topView = [[TopViewController alloc] initWithNibName:@"TopView" bundle:nil];
@@ -86,13 +92,42 @@
 //as the stepper changes, update the textField
 -(IBAction)onChange:(id)sender
 {
-    UIStepper *stepControl = (UIStepper*) sender;
-    if(stepControl != nil)
+    UIButton *button = (UIButton*)sender;
+    if(button != nil)
     {
-        int currentValue = stepControl.value;
-        result.text = [NSString stringWithFormat:@"Step value = %d", currentValue];
-        NSLog(@"Step value = %d", currentValue);
+        if(button.tag == STEPPER)
+        {
+            UIStepper *stepControl = (UIStepper*) sender;
+            if(stepControl != nil)
+            {
+                int currentValue = stepControl.value;
+                result.text = [NSString stringWithFormat:@"Step value = %d", currentValue];
+                NSLog(@"Step value = %d", currentValue);
+            }
+        }
+        else if (button.tag == SEGMENT)
+        {
+            UISegmentedControl *segmentControl = (UISegmentedControl*)sender;
+            if(segmentControl != nil)
+            {
+                int selectedIndex = segmentControl.selectedSegmentIndex;
+                NSLog(@"selected index = %d", selectedIndex);
+                if(selectedIndex == 0)
+                {
+                    self.view.backgroundColor = [UIColor greenColor];
+                }
+                else if(selectedIndex == 1)
+                {
+                    self.view.backgroundColor = [UIColor blueColor];
+                }
+                else if(selectedIndex == 2)
+                {
+                    self.view.backgroundColor = [UIColor whiteColor];
+                }
+            }
+        }
     }
+    
 }
 - (void)viewDidLoad
 {
@@ -100,7 +135,7 @@
     infoBtn = [UIButton buttonWithType:UIButtonTypeInfoLight];
     infoBtn.frame = CGRectMake(15.0f, 410.0f, 20.0f, 20.0f);
     [infoBtn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
-    infoBtn.tag = BUTTON_SEVEN;
+    infoBtn.tag = INFO_BUTTON;
     [self.view addSubview:infoBtn];
 
     
