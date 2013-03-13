@@ -31,20 +31,23 @@
     return true;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+-(IBAction)onClose:(id)sender
 {
-    
-    
+
     //Depreciated
-    //Use this instead somehow:
+    //Use this instead:
     //- (void)dismissViewControllerAnimated: (BOOL)flag completion: (void (^)(void))completion NS_AVAILABLE_IOS(5_0);
-    [self dismissModalViewControllerAnimated:true];
-    //call delegate text
-    if(delegate != nil)
-    {
-        [delegate DidClose:textField.text];
-    }
-    return true;
+    //Depreciated in iOS 6.0
+    ////[self dismissModalViewControllerAnimated:true];
+    //Replaced
+    [self dismissViewControllerAnimated:true completion:nil];
+    
+//    //call delegate text
+//    if(delegate != nil)
+//    {
+//        [delegate DidClose:textField.text];
+//    }
+//    return true;
 }
 
 - (void)viewDidLoad

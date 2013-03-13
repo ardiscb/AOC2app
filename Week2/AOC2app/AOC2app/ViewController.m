@@ -12,25 +12,70 @@
 //import TopViewController.h
 #import "TopViewController.h"
 
+#define BUTTON_SEVEN 7
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
 
+//onClick event for all buttons on main ViewController
 -(IBAction)onClick:(id)sender
 {
-    TopViewController *topView = [[TopViewController alloc] initWithNibName:@"TopView" bundle:nil];
-    if(topView != nil)
+    UIButton *button = (UIButton*)sender;
+    if(button != nil)
     {
-        topView.delegate = self;
-        //Depreciated
-        //Use this instead somehow:
-        //- (void)presentViewController:(UIViewController *)viewControllerToPresent animated:
-        //(BOOL)flag completion:(void (^)(void))completion NS_AVAILABLE_IOS(5_0);
-//        [self presentViewController:(UIViewController *)topView animated:true];
-        [self presentModalViewController:topView animated:true];
+        if(button.tag == 0)
+        {
+            burgerBtn.enabled = false;
+            burgerBtn.highlighted = true;
+            saladBtn.enabled = true;
+            gChickBtn.enabled = true;
+            NSLog(@"you pressed burger");
+        }
+        else if(button.tag ==1)
+        {
+            burgerBtn.enabled = true;
+            saladBtn.enabled = false;
+            gChickBtn.enabled = true;
+            NSLog(@"you pressed salad");
+            
+        }
+        else if(button.tag ==2)
+        {
+            burgerBtn.enabled = true;
+            saladBtn.enabled = true;
+            gChickBtn.enabled = false;
+            NSLog(@"you pressed grilled chicken");
+            
+        }
+        else if(button.tag == 3)
+        {
+            NSLog(@"you clicked in the text field ");
+            
+        }
+        else if(button.tag == 4)
+        {
+            NSLog(@"you pressed calculate");
+            
+        }
+        else if(button.tag == 7)
+        {
+            //if you click on topview (info button)
+            TopViewController *topView = [[TopViewController alloc] initWithNibName:@"TopView" bundle:nil];
+            if(topView != nil)
+            {
+                topView.delegate = self;
+                [self presentViewController:topView animated:true completion:nil];
+            }
+            NSLog(@"You pressed the info button");
+            
+        }
+        else{
+            NSLog(@"Where'd you find that button?!?");
+        }
     }
+
 }
 
 -(void)DidClose:(NSString*)nameString
@@ -40,8 +85,15 @@
 
 - (void)viewDidLoad
 {
+    //create info button
+    infoBtn = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    infoBtn.frame = CGRectMake(15.0f, 410.0f, 20.0f, 20.0f);
+    [infoBtn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
+    infoBtn.tag = BUTTON_SEVEN;
+    [self.view addSubview:infoBtn];
+
     
-    //create burger   
+    //create burger
 //    baseClass *burger = [FoodFactory GetFood:BURGER];
     
     burgerClass *burgerDetails = (burgerClass*)[FoodFactory createFood:BURGER];
@@ -110,59 +162,6 @@
         //calculate and log
         [gChickenDetails calculatePricePerWeek];
     }
-    
-    //LABELS
-//    burgerLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 300.0f, 45.0f)];
-//    if(burgerLabel != nil)
-//    {
-//        burgerLabel.text = [NSString stringWithFormat:@"Your burger has %d patties at $%d per patty", [burgerDetails numPatties], [burgerDetails pricePerPatty]];
-//        burgerLabel.numberOfLines = 2;
-////        burgerLabel.lineBreakMode = NSLineBreakByWordWrapping;
-//    }
-//    //BURGER custom
-//    burgerCustom = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 60.0f, 300.0f, 45.0f)];
-//    if(burgerCustom != nil)
-//    {
-//        burgerCustom.text = [NSString stringWithFormat:@"It cost you $%d. %@", [burgerDetails total], [burgerDetails advice]];
-//        burgerCustom.numberOfLines = 3;
-//    }
-//    
-//    saladLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 110.0f, 300.0f, 45.0f)];
-//    if(saladLabel != nil)
-//    {
-//        saladLabel.text = [NSString stringWithFormat:@"I hope you enjoyed your salad with %d croutons and %d cup of dressing.", [saladDetails numCroutons], [saladDetails amtDressingInCups]];
-//        saladLabel.numberOfLines = 2;
-//    }
-//    //SALAD custom
-//    saladCustom = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 160.0f, 300.0f, 25.0f)];
-//    if(saladCustom != nil)
-//    {
-//        saladCustom.text = [NSString stringWithFormat:@"It cost you $%d. %@", [saladDetails total], [saladDetails advice]];
-//        saladCustom.numberOfLines = 2;
-//    }
-//    
-//    gChickenLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 190.0f, 300.0f, 45.0f)];
-//    if(gChickenLabel != nil)
-//    {
-//        gChickenLabel.text = [NSString stringWithFormat:@"I hope your %d piece %d ounce grilled chicken was delicious.", [gChickenDetails numPiecesOfChicken], [gChickenDetails ounces]];
-//        gChickenLabel.numberOfLines = 2;
-//    }
-//    //GRILLED CHICKEN custom
-//    gChickenCustom = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 240.0f, 300.0f, 45.0f)];
-//    if(gChickenCustom != nil)
-//    {
-//        gChickenCustom.text = [NSString stringWithFormat:@"It cost you $%d. %@", [gChickenDetails total], [gChickenDetails advice]];
-//        gChickenCustom.numberOfLines = 2;
-//    }
-    
-    //add labels to view
-//    [self.view addSubview:burgerLabel];
-//    [self.view addSubview:burgerCustom];
-//    [self.view addSubview:saladLabel];
-//    [self.view addSubview:saladCustom];
-//    [self.view addSubview:gChickenLabel];
-//    [self.view addSubview:gChickenCustom];
-    //END LABELS
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.

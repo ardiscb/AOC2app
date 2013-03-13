@@ -16,13 +16,13 @@
 
 @interface ViewController : UIViewController <TopViewDelegate>
 {
-//    UILabel *burgerLabel,
-//            *burgerCustom,
-//            *saladLabel,
-//            *saladCustom,
-//            *gChickenLabel,
-//            *gChickenCustom;
     IBOutlet UILabel *nameLabel;
+    IBOutlet UITextField *result;
+    IBOutlet UIButton *burgerBtn,
+                      *saladBtn,
+                      *gChickBtn;
+    IBOutlet UIButton *infoBtn;
+
 }
 
 -(IBAction)onClick:(id)sender;
