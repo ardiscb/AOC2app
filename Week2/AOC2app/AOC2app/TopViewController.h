@@ -16,9 +16,9 @@
 @interface TopViewController : UIViewController <UITextFieldDelegate>
 {
     IBOutlet UIButton *closeBtn;
-//    id<TopViewDelegate> delegate;
+    id<TopViewDelegate> delegate;
 }
-//-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField;
+
 -(IBAction)onClose:(id)sender;
 
 //set delegate from outside of topview

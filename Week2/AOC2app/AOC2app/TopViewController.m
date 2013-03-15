@@ -24,22 +24,10 @@
     }
     return self;
 }
-//clear text field of default text
-//-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-//{
-//    textField.text = @"";
-//    return true;
-//}
 
 -(IBAction)onClose:(id)sender
 {
 
-    //Depreciated
-    //Use this instead:
-    //- (void)dismissViewControllerAnimated: (BOOL)flag completion: (void (^)(void))completion NS_AVAILABLE_IOS(5_0);
-    //Depreciated in iOS 6.0
-    ////[self dismissModalViewControllerAnimated:true];
-    //Replaced
     [self dismissViewControllerAnimated:true completion:nil];
     
 //    //call delegate text

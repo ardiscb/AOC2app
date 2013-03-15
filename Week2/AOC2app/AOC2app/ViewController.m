@@ -29,81 +29,14 @@
 {
     //create info button
     infoBtn = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    //position info button
     infoBtn.frame = CGRectMake(280.0f, 435.0f, 20.0f, 20.0f);
+    //on click event for info button
     [infoBtn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
     infoBtn.tag = INFO_BUTTON;
+    //add info button to view
     [self.view addSubview:infoBtn];
     
-    
-//    //create burger
-//    //    baseClass *burger = [FoodFactory GetFood:BURGER];
-//    
-//    burgerClass *burgerDetails = (burgerClass*)[FoodFactory createFood:BURGER];
-//    //set number of patties
-//    [burgerDetails setNumPatties:3];
-//    
-//    //create salad
-//    //    baseClass *salad = [FoodFactory GetFood:SALAD];
-//    saladClass *saladDetails = (saladClass*)[FoodFactory createFood:SALAD];
-//    //set numCroutons and amtDressingInCups
-//    [saladDetails setNumCroutons:4];
-//    [saladDetails setAmtDressingInCups:1];
-//    
-//    //create grilled chicken
-//    //    baseClass *gChicken = [FoodFactory GetFood:GRILLEDCHICKEN];
-//    grilledChickenClass *gChickenDetails = (grilledChickenClass*)[FoodFactory createFood:GRILLEDCHICKEN];
-//    //set ounces of chicken
-//    [gChickenDetails setOunces:8];
-//    
-//    
-//    //  instance of factory - no need for this when using a class method, like the ones above
-//    //  FoodFactory *foodFactory = [[FoodFactory alloc] init];
-//    
-//    if(burgerDetails != nil)
-//    {
-//        //print name of food(burger) by using the foodType and a factory
-//        //baseClass *burger = [foodFactory GetFood:BURGER];
-//        [burgerDetails printNumber];
-//        
-//        //set burger advice
-//        NSString *burgerAdvice = @"Advice: Eat less burgers";
-//        [burgerDetails setAdvice:burgerAdvice];
-//        NSLog(@"%@", [burgerDetails advice]);
-//        
-//        [burgerDetails total];
-//        
-//        //calculate and log
-//        [burgerDetails calculatePricePerWeek];
-//    }
-//    if(saladDetails != nil)
-//    {
-//        //print name of food(salad) by using the foodType and a factory
-//        //        baseClass *salad = [foodFactory GetFood:SALAD];
-//        [saladDetails printNumber];
-//        
-//        //set salad advice
-//        NSString *saladAdvice = @"Advice: Eat more salads!";
-//        [saladDetails setAdvice:saladAdvice];
-//        NSLog(@"%@", [saladDetails advice]);
-//        
-//        [saladDetails total];
-//        //calculate and log
-//        [saladDetails calculatePricePerWeek];
-//    }
-//    if(gChickenDetails != nil)
-//    {
-//        //        baseClass *gChicken = [foodFactory GetFood:GRILLEDCHICKEN];
-//        [gChickenDetails printNumber];
-//        
-//        //set grilled chicken advice
-//        NSString *gChickenAdvice = @"Advice: Eat a moderate amount of chicken. :)";
-//        [gChickenDetails setAdvice:gChickenAdvice];
-//        NSLog(@"%@", [gChickenDetails advice]);
-//        
-//        [gChickenDetails total];
-//        //calculate and log
-//        [gChickenDetails calculatePricePerWeek];
-//    }
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -116,36 +49,42 @@
     UIButton *button = (UIButton*)sender;
     if(button != nil)
     {
+        //if burger button is clicked
         if(button.tag == BURGER_BUTTON)
         {
+            //make burger button disabled
             burgerBtn.enabled = false;
-            burgerBtn.highlighted = true;
+            //make all others enabled
             saladBtn.enabled = true;
             gChickBtn.enabled = true;
             NSLog(@"you pressed burger");
+            //display food item that is clicked in the text field
             result.text = @"You chose to eat a burger";
         }
+        //if salad button is clicked
         else if(button.tag == SALAD_BUTTON)
         {
-            burgerBtn.enabled = true;
+            //make salad button disabled
             saladBtn.enabled = false;
+            //make all others enabled
+            burgerBtn.enabled = true;
             gChickBtn.enabled = true;
             NSLog(@"you pressed salad");
+            //display food item that is clicked in the text field
             result.text = @"You chose to eat a salad";
             
         }
+        //if grilled chicken is clicked
         else if(button.tag == GCHICK_BUTTON)
         {
+            //make grilled chicken button disabled
+            gChickBtn.enabled = false;
+            //make all others enabled
             burgerBtn.enabled = true;
             saladBtn.enabled = true;
-            gChickBtn.enabled = false;
             NSLog(@"you pressed grilled chicken");
+            //display food item that is clicked in the text field
             result.text = @"You chose to eat grilled chicken";
-            
-        }
-        else if(button.tag == 3)
-        {
-            NSLog(@"you clicked in the text field ");
             
         }
         else if(button.tag == CAL_BUTTON)
@@ -156,9 +95,10 @@
             {
                 //create factory
                 burgerClass *burgerCal = (burgerClass*)[FoodFactory createFood:BURGER];
-                //override calculation
+                //set values
                 [burgerCal setNumPatties:2];
                 [burgerCal calculatePricePerWeek];
+                //set price per week for final calculation
                 int pricePerWeek = burgerCal.total * currentValue;
                 NSLog(@"%d", burgerCal.total);
                 NSLog(@"%d", pricePerWeek);
@@ -169,10 +109,11 @@
             {
                 //create factory
                 saladClass *saladCal = (saladClass*)[FoodFactory createFood:SALAD];
-                //override calculation
+                //set calculation
                 [saladCal setAmtDressingInCups:2];
                 [saladCal setNumCroutons:4];
                 [saladCal calculatePricePerWeek];
+                //set price per week for final calculation
                 int pricePerWeek = saladCal.total * currentValue;
                 NSLog(@"%d", saladCal.total);
                 NSLog(@"%d", pricePerWeek);
@@ -183,21 +124,25 @@
             {
                 //create factory
                 grilledChickenClass *gChickCal = (grilledChickenClass*)[FoodFactory createFood:GRILLEDCHICKEN];
-                //override calculation
+                //set calculation
                 [gChickCal setNumPiecesOfChicken:3];
                 [gChickCal setOunces:6];
                 [gChickCal calculatePricePerWeek];
+                //set price per week for final calculation
                 int pricePerWeek = gChickCal.total * currentValue;
                 NSLog(@"%d", gChickCal.total);
                 NSLog(@"%d", pricePerWeek);
                 //display calculation in text field
                 result.text = [NSString stringWithFormat:@"You spent $%d in a week on %d grilled chicken", pricePerWeek, currentValue];
             }
+            else
+            {
+                NSLog(@"Everything is enabled");
+            }
             
         }
         else if(button.tag == INFO_BUTTON)
         {
-            //if you click on topview (info button)
             TopViewController *topView = [[TopViewController alloc] initWithNibName:@"TopView" bundle:nil];
             if(topView != nil)
             {
@@ -214,10 +159,10 @@
 
 }
 
-//on close of modal view; replace what was in the text box in the nameLabel on main view 
+//on close of modal view
 -(void)DidClose:(NSString*)nameString
 {
-    nameLabel.text = nameString;
+    //do something after second view closes
 }
 
 //as the stepper changes, update the textField
@@ -228,11 +173,15 @@
     {
         if(button.tag == STEPPER)
         {
+            
             UIStepper *stepControl = (UIStepper*) sender;
             if(stepControl != nil)
             {
+                //set value of stepper
                 currentValue = stepControl.value;
+                //display value in text field
                 result.text = [NSString stringWithFormat:@"You ate %d in a week", currentValue];
+                //show value in label beside stepper
                 stepperLabel.text = [NSString stringWithFormat:@"%d", currentValue];
                 NSLog(@"Step value = %d", currentValue);
                 
@@ -243,18 +192,25 @@
             UISegmentedControl *segmentControl = (UISegmentedControl*)sender;
             if(segmentControl != nil)
             {
+                //set value of selected index
                 int selectedIndex = segmentControl.selectedSegmentIndex;
                 NSLog(@"selected index = %d", selectedIndex);
+                //if green is selected
                 if(selectedIndex == 0)
                 {
+                    //display a green background
                     self.view.backgroundColor = [UIColor colorWithRed:0.523 green:0.897 blue:0.451 alpha:1];
                 }
+                //if blue is selected
                 else if(selectedIndex == 1)
                 {
+                    //display a blue background
                     self.view.backgroundColor = [UIColor colorWithRed:0.223 green:0.597 blue:0.751 alpha:1];
                 }
+                //if purple is selected
                 else if(selectedIndex == 2)
                 {
+                    //display a purple background
                     self.view.backgroundColor = [UIColor colorWithRed:0.623 green:0.497 blue:0.651 alpha:1];
                 }
             }
