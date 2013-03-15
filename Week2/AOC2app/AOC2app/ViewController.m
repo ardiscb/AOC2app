@@ -29,81 +29,81 @@
 {
     //create info button
     infoBtn = [UIButton buttonWithType:UIButtonTypeInfoDark];
-    infoBtn.frame = CGRectMake(280.0f, 380.0f, 20.0f, 20.0f);
+    infoBtn.frame = CGRectMake(280.0f, 435.0f, 20.0f, 20.0f);
     [infoBtn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
     infoBtn.tag = INFO_BUTTON;
     [self.view addSubview:infoBtn];
     
     
-    //create burger
-    //    baseClass *burger = [FoodFactory GetFood:BURGER];
-    
-    burgerClass *burgerDetails = (burgerClass*)[FoodFactory createFood:BURGER];
-    //set number of patties
-    [burgerDetails setNumPatties:3];
-    
-    //create salad
-    //    baseClass *salad = [FoodFactory GetFood:SALAD];
-    saladClass *saladDetails = (saladClass*)[FoodFactory createFood:SALAD];
-    //set numCroutons and amtDressingInCups
-    [saladDetails setNumCroutons:4];
-    [saladDetails setAmtDressingInCups:1];
-    
-    //create grilled chicken
-    //    baseClass *gChicken = [FoodFactory GetFood:GRILLEDCHICKEN];
-    grilledChickenClass *gChickenDetails = (grilledChickenClass*)[FoodFactory createFood:GRILLEDCHICKEN];
-    //set ounces of chicken
-    [gChickenDetails setOunces:8];
-    
-    
-    //  instance of factory - no need for this when using a class method, like the ones above
-    //  FoodFactory *foodFactory = [[FoodFactory alloc] init];
-    
-    if(burgerDetails != nil)
-    {
-        //print name of food(burger) by using the foodType and a factory
-        //baseClass *burger = [foodFactory GetFood:BURGER];
-        [burgerDetails printNumber];
-        
-        //set burger advice
-        NSString *burgerAdvice = @"Advice: Eat less burgers";
-        [burgerDetails setAdvice:burgerAdvice];
-        NSLog(@"%@", [burgerDetails advice]);
-        
-        [burgerDetails total];
-        
-        //calculate and log
-        [burgerDetails calculatePricePerWeek];
-    }
-    if(saladDetails != nil)
-    {
-        //print name of food(salad) by using the foodType and a factory
-        //        baseClass *salad = [foodFactory GetFood:SALAD];
-        [saladDetails printNumber];
-        
-        //set salad advice
-        NSString *saladAdvice = @"Advice: Eat more salads!";
-        [saladDetails setAdvice:saladAdvice];
-        NSLog(@"%@", [saladDetails advice]);
-        
-        [saladDetails total];
-        //calculate and log
-        [saladDetails calculatePricePerWeek];
-    }
-    if(gChickenDetails != nil)
-    {
-        //        baseClass *gChicken = [foodFactory GetFood:GRILLEDCHICKEN];
-        [gChickenDetails printNumber];
-        
-        //set grilled chicken advice
-        NSString *gChickenAdvice = @"Advice: Eat a moderate amount of chicken. :)";
-        [gChickenDetails setAdvice:gChickenAdvice];
-        NSLog(@"%@", [gChickenDetails advice]);
-        
-        [gChickenDetails total];
-        //calculate and log
-        [gChickenDetails calculatePricePerWeek];
-    }
+//    //create burger
+//    //    baseClass *burger = [FoodFactory GetFood:BURGER];
+//    
+//    burgerClass *burgerDetails = (burgerClass*)[FoodFactory createFood:BURGER];
+//    //set number of patties
+//    [burgerDetails setNumPatties:3];
+//    
+//    //create salad
+//    //    baseClass *salad = [FoodFactory GetFood:SALAD];
+//    saladClass *saladDetails = (saladClass*)[FoodFactory createFood:SALAD];
+//    //set numCroutons and amtDressingInCups
+//    [saladDetails setNumCroutons:4];
+//    [saladDetails setAmtDressingInCups:1];
+//    
+//    //create grilled chicken
+//    //    baseClass *gChicken = [FoodFactory GetFood:GRILLEDCHICKEN];
+//    grilledChickenClass *gChickenDetails = (grilledChickenClass*)[FoodFactory createFood:GRILLEDCHICKEN];
+//    //set ounces of chicken
+//    [gChickenDetails setOunces:8];
+//    
+//    
+//    //  instance of factory - no need for this when using a class method, like the ones above
+//    //  FoodFactory *foodFactory = [[FoodFactory alloc] init];
+//    
+//    if(burgerDetails != nil)
+//    {
+//        //print name of food(burger) by using the foodType and a factory
+//        //baseClass *burger = [foodFactory GetFood:BURGER];
+//        [burgerDetails printNumber];
+//        
+//        //set burger advice
+//        NSString *burgerAdvice = @"Advice: Eat less burgers";
+//        [burgerDetails setAdvice:burgerAdvice];
+//        NSLog(@"%@", [burgerDetails advice]);
+//        
+//        [burgerDetails total];
+//        
+//        //calculate and log
+//        [burgerDetails calculatePricePerWeek];
+//    }
+//    if(saladDetails != nil)
+//    {
+//        //print name of food(salad) by using the foodType and a factory
+//        //        baseClass *salad = [foodFactory GetFood:SALAD];
+//        [saladDetails printNumber];
+//        
+//        //set salad advice
+//        NSString *saladAdvice = @"Advice: Eat more salads!";
+//        [saladDetails setAdvice:saladAdvice];
+//        NSLog(@"%@", [saladDetails advice]);
+//        
+//        [saladDetails total];
+//        //calculate and log
+//        [saladDetails calculatePricePerWeek];
+//    }
+//    if(gChickenDetails != nil)
+//    {
+//        //        baseClass *gChicken = [foodFactory GetFood:GRILLEDCHICKEN];
+//        [gChickenDetails printNumber];
+//        
+//        //set grilled chicken advice
+//        NSString *gChickenAdvice = @"Advice: Eat a moderate amount of chicken. :)";
+//        [gChickenDetails setAdvice:gChickenAdvice];
+//        NSLog(@"%@", [gChickenDetails advice]);
+//        
+//        [gChickenDetails total];
+//        //calculate and log
+//        [gChickenDetails calculatePricePerWeek];
+//    }
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -150,11 +150,49 @@
         }
         else if(button.tag == CAL_BUTTON)
         {
-            //factory creation
-//            FoodFactory *foodFactory = [[FoodFactory alloc] init];
             NSLog(@"you pressed calculate");
             //display result of calculation multiplied by stepper(number eaten in a week)
-//            result.text = [NSString stringWithFormat:@"You ate %d in a week", ];
+            if(burgerBtn.enabled == false)
+            {
+                //create factory
+                burgerClass *burgerCal = (burgerClass*)[FoodFactory createFood:BURGER];
+                //override calculation
+                [burgerCal setNumPatties:2];
+                [burgerCal calculatePricePerWeek];
+                int pricePerWeek = burgerCal.total * currentValue;
+                NSLog(@"%d", burgerCal.total);
+                NSLog(@"%d", pricePerWeek);
+                //display calculation in text field
+                result.text = [NSString stringWithFormat:@"You spent $%d in a week on %d burgers", pricePerWeek, currentValue];
+            }
+            else if(saladBtn.enabled == false)
+            {
+                //create factory
+                saladClass *saladCal = (saladClass*)[FoodFactory createFood:SALAD];
+                //override calculation
+                [saladCal setAmtDressingInCups:2];
+                [saladCal setNumCroutons:4];
+                [saladCal calculatePricePerWeek];
+                int pricePerWeek = saladCal.total * currentValue;
+                NSLog(@"%d", saladCal.total);
+                NSLog(@"%d", pricePerWeek);
+                //display calculation in text field
+                result.text = [NSString stringWithFormat:@"You spent $%d in a week on %d salads", pricePerWeek, currentValue];
+            }
+            else if(gChickBtn.enabled == false)
+            {
+                //create factory
+                grilledChickenClass *gChickCal = (grilledChickenClass*)[FoodFactory createFood:GRILLEDCHICKEN];
+                //override calculation
+                [gChickCal setNumPiecesOfChicken:3];
+                [gChickCal setOunces:6];
+                [gChickCal calculatePricePerWeek];
+                int pricePerWeek = gChickCal.total * currentValue;
+                NSLog(@"%d", gChickCal.total);
+                NSLog(@"%d", pricePerWeek);
+                //display calculation in text field
+                result.text = [NSString stringWithFormat:@"You spent $%d in a week on %d grilled chicken", pricePerWeek, currentValue];
+            }
             
         }
         else if(button.tag == INFO_BUTTON)
