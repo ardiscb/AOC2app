@@ -25,6 +25,91 @@
 
 @implementation ViewController
 
+- (void)viewDidLoad
+{
+    //create info button
+    infoBtn = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    infoBtn.frame = CGRectMake(280.0f, 380.0f, 20.0f, 20.0f);
+    [infoBtn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
+    infoBtn.tag = INFO_BUTTON;
+    [self.view addSubview:infoBtn];
+    
+    
+    //create burger
+    //    baseClass *burger = [FoodFactory GetFood:BURGER];
+    
+    burgerClass *burgerDetails = (burgerClass*)[FoodFactory createFood:BURGER];
+    //set number of patties
+    [burgerDetails setNumPatties:3];
+    
+    //create salad
+    //    baseClass *salad = [FoodFactory GetFood:SALAD];
+    saladClass *saladDetails = (saladClass*)[FoodFactory createFood:SALAD];
+    //set numCroutons and amtDressingInCups
+    [saladDetails setNumCroutons:4];
+    [saladDetails setAmtDressingInCups:1];
+    
+    //create grilled chicken
+    //    baseClass *gChicken = [FoodFactory GetFood:GRILLEDCHICKEN];
+    grilledChickenClass *gChickenDetails = (grilledChickenClass*)[FoodFactory createFood:GRILLEDCHICKEN];
+    //set ounces of chicken
+    [gChickenDetails setOunces:8];
+    
+    
+    //  instance of factory - no need for this when using a class method, like the ones above
+    //  FoodFactory *foodFactory = [[FoodFactory alloc] init];
+    
+    if(burgerDetails != nil)
+    {
+        //print name of food(burger) by using the foodType and a factory
+        //baseClass *burger = [foodFactory GetFood:BURGER];
+        [burgerDetails printNumber];
+        
+        //set burger advice
+        NSString *burgerAdvice = @"Advice: Eat less burgers";
+        [burgerDetails setAdvice:burgerAdvice];
+        NSLog(@"%@", [burgerDetails advice]);
+        
+        [burgerDetails total];
+        
+        //calculate and log
+        [burgerDetails calculatePricePerWeek];
+    }
+    if(saladDetails != nil)
+    {
+        //print name of food(salad) by using the foodType and a factory
+        //        baseClass *salad = [foodFactory GetFood:SALAD];
+        [saladDetails printNumber];
+        
+        //set salad advice
+        NSString *saladAdvice = @"Advice: Eat more salads!";
+        [saladDetails setAdvice:saladAdvice];
+        NSLog(@"%@", [saladDetails advice]);
+        
+        [saladDetails total];
+        //calculate and log
+        [saladDetails calculatePricePerWeek];
+    }
+    if(gChickenDetails != nil)
+    {
+        //        baseClass *gChicken = [foodFactory GetFood:GRILLEDCHICKEN];
+        [gChickenDetails printNumber];
+        
+        //set grilled chicken advice
+        NSString *gChickenAdvice = @"Advice: Eat a moderate amount of chicken. :)";
+        [gChickenDetails setAdvice:gChickenAdvice];
+        NSLog(@"%@", [gChickenDetails advice]);
+        
+        [gChickenDetails total];
+        //calculate and log
+        [gChickenDetails calculatePricePerWeek];
+    }
+    
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+}
+
+
 //onClick event for all buttons on main ViewController
 -(IBAction)onClick:(id)sender
 {
@@ -38,6 +123,7 @@
             saladBtn.enabled = true;
             gChickBtn.enabled = true;
             NSLog(@"you pressed burger");
+            result.text = @"You chose to eat a burger";
         }
         else if(button.tag == SALAD_BUTTON)
         {
@@ -45,6 +131,7 @@
             saladBtn.enabled = false;
             gChickBtn.enabled = true;
             NSLog(@"you pressed salad");
+            result.text = @"You chose to eat a salad";
             
         }
         else if(button.tag == GCHICK_BUTTON)
@@ -53,6 +140,7 @@
             saladBtn.enabled = true;
             gChickBtn.enabled = false;
             NSLog(@"you pressed grilled chicken");
+            result.text = @"You chose to eat grilled chicken";
             
         }
         else if(button.tag == 3)
@@ -62,7 +150,11 @@
         }
         else if(button.tag == CAL_BUTTON)
         {
+            //factory creation
+//            FoodFactory *foodFactory = [[FoodFactory alloc] init];
             NSLog(@"you pressed calculate");
+            //display result of calculation multiplied by stepper(number eaten in a week)
+//            result.text = [NSString stringWithFormat:@"You ate %d in a week", ];
             
         }
         else if(button.tag == INFO_BUTTON)
@@ -89,6 +181,7 @@
 {
     nameLabel.text = nameString;
 }
+
 //as the stepper changes, update the textField
 -(IBAction)onChange:(id)sender
 {
@@ -100,9 +193,11 @@
             UIStepper *stepControl = (UIStepper*) sender;
             if(stepControl != nil)
             {
-                int currentValue = stepControl.value;
-                result.text = [NSString stringWithFormat:@"Step value = %d", currentValue];
+                currentValue = stepControl.value;
+                result.text = [NSString stringWithFormat:@"You ate %d in a week", currentValue];
+                stepperLabel.text = [NSString stringWithFormat:@"%d", currentValue];
                 NSLog(@"Step value = %d", currentValue);
+                
             }
         }
         else if (button.tag == SEGMENT)
@@ -114,103 +209,20 @@
                 NSLog(@"selected index = %d", selectedIndex);
                 if(selectedIndex == 0)
                 {
-                    self.view.backgroundColor = [UIColor greenColor];
+                    self.view.backgroundColor = [UIColor colorWithRed:0.523 green:0.897 blue:0.451 alpha:1];
                 }
                 else if(selectedIndex == 1)
                 {
-                    self.view.backgroundColor = [UIColor blueColor];
+                    self.view.backgroundColor = [UIColor colorWithRed:0.223 green:0.597 blue:0.751 alpha:1];
                 }
                 else if(selectedIndex == 2)
                 {
-                    self.view.backgroundColor = [UIColor whiteColor];
+                    self.view.backgroundColor = [UIColor colorWithRed:0.623 green:0.497 blue:0.651 alpha:1];
                 }
             }
         }
     }
     
-}
-- (void)viewDidLoad
-{
-    //create info button
-    infoBtn = [UIButton buttonWithType:UIButtonTypeInfoLight];
-    infoBtn.frame = CGRectMake(15.0f, 410.0f, 20.0f, 20.0f);
-    [infoBtn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
-    infoBtn.tag = INFO_BUTTON;
-    [self.view addSubview:infoBtn];
-
-    
-    //create burger
-//    baseClass *burger = [FoodFactory GetFood:BURGER];
-    
-    burgerClass *burgerDetails = (burgerClass*)[FoodFactory createFood:BURGER];
-    //set number of patties
-    [burgerDetails setNumPatties:3];
-    
-    //create salad
-//    baseClass *salad = [FoodFactory GetFood:SALAD];
-    saladClass *saladDetails = (saladClass*)[FoodFactory createFood:SALAD];
-    //set numCroutons and amtDressingInCups
-    [saladDetails setNumCroutons:4];
-    [saladDetails setAmtDressingInCups:1];
-    
-    //create grilled chicken
-//    baseClass *gChicken = [FoodFactory GetFood:GRILLEDCHICKEN];
-    grilledChickenClass *gChickenDetails = (grilledChickenClass*)[FoodFactory createFood:GRILLEDCHICKEN];
-    //set ounces of chicken
-    [gChickenDetails setOunces:8];
-
-    
-//  instance of factory - no need for this when using a class method, like the ones above
-//  FoodFactory *foodFactory = [[FoodFactory alloc] init];
-    
-    if(burgerDetails != nil)
-    {
-        //print name of food(burger) by using the foodType and a factory
-        //baseClass *burger = [foodFactory GetFood:BURGER];
-        [burgerDetails printNumber];
-        
-        //set burger advice
-        NSString *burgerAdvice = @"Advice: Eat less burgers";
-        [burgerDetails setAdvice:burgerAdvice];
-        NSLog(@"%@", [burgerDetails advice]);
-        
-        [burgerDetails total];
-        
-        //calculate and log
-        [burgerDetails calculatePricePerWeek];
-    }
-    if(saladDetails != nil)
-    {
-        //print name of food(salad) by using the foodType and a factory
-//        baseClass *salad = [foodFactory GetFood:SALAD];
-        [saladDetails printNumber];
-        
-        //set salad advice
-        NSString *saladAdvice = @"Advice: Eat more salads!";
-        [saladDetails setAdvice:saladAdvice];
-        NSLog(@"%@", [saladDetails advice]);
-        
-        [saladDetails total];
-        //calculate and log
-        [saladDetails calculatePricePerWeek];
-    }
-    if(gChickenDetails != nil)
-    {
-//        baseClass *gChicken = [foodFactory GetFood:GRILLEDCHICKEN];
-        [gChickenDetails printNumber];
-        
-        //set grilled chicken advice
-        NSString *gChickenAdvice = @"Advice: Eat a moderate amount of chicken. :)";
-        [gChickenDetails setAdvice:gChickenAdvice];
-        NSLog(@"%@", [gChickenDetails advice]);
-        
-        [gChickenDetails total];
-        //calculate and log
-        [gChickenDetails calculatePricePerWeek];
-    }
-    
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
  
 - (void)didReceiveMemoryWarning
