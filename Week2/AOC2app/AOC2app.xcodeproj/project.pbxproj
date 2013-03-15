@@ -58,7 +58,7 @@
 		FA7D131216E8295F005974EC /* grilledChickenClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = grilledChickenClass.m; path = ../grilledChickenClass.m; sourceTree = "<group>"; };
 		FA7D131416E94743005974EC /* FoodFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodFactory.h; sourceTree = "<group>"; };
 		FA7D131516E94743005974EC /* FoodFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodFactory.m; sourceTree = "<group>"; };
-		FAFBD9D016F027370049D0C9 /* profilepicture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = profilepicture.jpg; path = ../../../../../../Pictures/Photos/profilepicture.jpg; sourceTree = "<group>"; };
+		FAFBD9D016F027370049D0C9 /* profilepicture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profilepicture.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
