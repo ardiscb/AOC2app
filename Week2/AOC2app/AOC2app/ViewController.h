@@ -25,6 +25,7 @@
     IBOutlet UIButton *infoBtn;
     IBOutlet UIStepper *stepper;
     int currentValue;
+    IBOutlet UISegmentedControl * segmentControl;
 }
 
 -(IBAction)onClick:(id)sender;

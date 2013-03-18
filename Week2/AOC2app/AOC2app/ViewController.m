@@ -189,11 +189,11 @@
         }
         else if (button.tag == SEGMENT)
         {
-            UISegmentedControl *segmentControl = (UISegmentedControl*)sender;
-            if(segmentControl != nil)
+            UISegmentedControl *segControl = (UISegmentedControl*)sender;
+            if(segControl != nil)
             {
                 //set value of selected index
-                int selectedIndex = segmentControl.selectedSegmentIndex;
+                int selectedIndex = segControl.selectedSegmentIndex;
                 NSLog(@"selected index = %d", selectedIndex);
                 //if green is selected
                 if(selectedIndex == 0)
@@ -225,4 +225,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    int selectedIndex = segmentControl.selectedSegmentIndex;
+    self.view.backgroundColor = [UIColor colorWithRed:0.523 green:0.897 blue:0.451 alpha:1];
+    [super viewDidAppear:animated];
+}
 @end
