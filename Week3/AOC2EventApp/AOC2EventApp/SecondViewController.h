@@ -15,11 +15,12 @@
 @interface SecondViewController : UIViewController <UITextFieldDelegate>
 {
     IBOutlet UIButton *saveBtn;
-    
+    IBOutlet UITextField *titleEvent;
     id<SecondViewDelegate> delegate;
 }
 
 -(IBAction)onClose:(id)sender;
+-(IBAction)closeKeyboard:(id)sender;
 
 //set delegate from outside of topview
 @property (strong) id<SecondViewDelegate> delegate;

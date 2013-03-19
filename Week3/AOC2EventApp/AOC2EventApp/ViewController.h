@@ -12,5 +12,6 @@
 @interface ViewController : UIViewController <SecondViewDelegate>
 {
     IBOutlet UIButton *addEvent;
+    IBOutlet UITextView *eventList;
 }
 @end

@@ -27,12 +27,16 @@
 -(IBAction)onClose:(id)sender
 {
     [self dismissViewControllerAnimated:true completion:nil];
-//    if(delegate != nil)
-//    {
-//        [delegate onSave:eventTitle.text];
-//    }
+    if(delegate != nil)
+    {
+        [delegate DidSave:titleEvent.text];
+        //doesn't save multiple events
+    }
 }
-
+//closes keyboard
+-(IBAction)closeKeyboard:(id)sender {
+    [titleEvent resignFirstResponder];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

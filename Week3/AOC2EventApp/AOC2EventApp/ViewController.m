@@ -43,7 +43,7 @@
 -(void)DidSave:(NSString*)titleEvent
 {
     //do something after second view closes -- saves event
-    
+    eventList.text = [NSString stringWithFormat:@"%@ \n", titleEvent];
 }
 - (void)didReceiveMemoryWarning
 {
