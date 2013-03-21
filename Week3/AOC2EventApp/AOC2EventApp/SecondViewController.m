@@ -15,6 +15,7 @@
 @implementation SecondViewController
 @synthesize delegate;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -24,16 +25,28 @@
     }
     return self;
 }
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    eventDate = datePicker.date;
+    datePicker.minimumDate = [NSDate date];
+    NSLog(@"%@", eventDate);
+//    NSLog(@"%@", datePicker.minimumDate);
+//    NSLog(@"Date set to current date. All others disabled?");
+}
 -(IBAction)onSave:(id)sender
 {
+    //titleEvent.text is never == nil (else never gets hit) :( hmm.
+    
     //if title and date is not empty
-    if(titleEvent.text != nil)
+    if(titleEvent.text.length == 0)
     {
         if(delegate != nil)
         {
             [self dismissViewControllerAnimated:true completion:nil];
             //pass event title to view controller
-            [delegate DidSave:titleEvent.text dateString:[dateFormatter stringFromDate:date]];
+            [delegate DidSave:titleEvent.text dateString:[dateFormatter stringFromDate:eventDate]];
         }
     }
     else
@@ -53,10 +66,12 @@
 //date picker
 -(IBAction)onChange:(id)sender
 {
-    UIDatePicker *picker = (UIDatePicker*)sender;
-    if(picker != nil)
+    eventDate = datePicker.date;
+//    NSLog(@"%@", datePicker.minimumDate);
+    NSLog(@"%@", eventDate);
+    datePicker = (UIDatePicker*)sender;
+    if(eventDate != nil)
     {
-        date = picker.date;
         dateFormatter = [[NSDateFormatter alloc] init];
         if(dateFormatter != nil)
         {
@@ -65,14 +80,9 @@
             //format time
             [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
         }
-        NSLog(@"%@", [date description]);
-        NSLog(@"%@", [dateFormatter stringFromDate:date]);
+//        NSLog(@"%@", [eventDate description]);
+        NSLog(@"%@", [dateFormatter stringFromDate:eventDate]);
     }
-}
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

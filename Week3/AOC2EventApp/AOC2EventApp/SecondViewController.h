@@ -17,8 +17,9 @@
     IBOutlet UIButton *saveBtn;
     IBOutlet UITextField *titleEvent;
     id<SecondViewDelegate> delegate;
-    NSDate *date;
+    NSDate *eventDate;
     NSDateFormatter *dateFormatter;
+    IBOutlet UIDatePicker *datePicker;
 }
 
 -(IBAction)onSave:(id)sender;

@@ -42,8 +42,16 @@
 //on close of second view
 -(void)DidSave:(NSString*)titleEvent dateString:(NSString*)date;
 {
-    //do something after second view closes -- saves event
-    eventList.text = [NSString stringWithFormat:@"%@ \n%@", titleEvent, date];
+    //after second view closes -- saves event
+    if([eventList.text isEqualToString:@""])
+    {
+       eventList.text = [NSString stringWithFormat:@"%@ \n%@", titleEvent, date];
+    }
+    else
+    {
+        eventList.text = [eventList.text stringByAppendingFormat:@"%@ \n%@", titleEvent, date];
+    }
+    
 }
 - (void)didReceiveMemoryWarning
 {
