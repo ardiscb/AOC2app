@@ -40,7 +40,7 @@
     //titleEvent.text is never == nil (else never gets hit) :( hmm.
     
     //if title and date is not empty
-    if(titleEvent.text.length == 0)
+    if(titleEvent.text.length >1)
     {
         if(delegate != nil)
         {

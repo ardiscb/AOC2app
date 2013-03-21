@@ -21,6 +21,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    eventList.text = @"Events listed here";
+    [self.view addSubview:eventList];
 }
 -(IBAction)onClick:(id)sender
 {
@@ -43,13 +45,13 @@
 -(void)DidSave:(NSString*)titleEvent dateString:(NSString*)date;
 {
     //after second view closes -- saves event
-    if([eventList.text isEqualToString:@""])
+    if([eventList.text isEqualToString:@"Events listed here"])
     {
        eventList.text = [NSString stringWithFormat:@"%@ \n%@", titleEvent, date];
     }
     else
     {
-        eventList.text = [eventList.text stringByAppendingFormat:@"%@ \n%@", titleEvent, date];
+        eventList.text = [eventList.text stringByAppendingFormat:@"\n%@ \n%@", titleEvent, date];
     }
     
 }
