@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @protocol SecondViewDelegate <NSObject>
 @required
--(void)DidSave:(NSString*)titleEvent;
+-(void)DidSave:(NSString*)titleEvent dateString:(NSString*)date;
 @end
 
 @interface SecondViewController : UIViewController <UITextFieldDelegate>
@@ -17,10 +17,13 @@
     IBOutlet UIButton *saveBtn;
     IBOutlet UITextField *titleEvent;
     id<SecondViewDelegate> delegate;
+    NSDate *date;
+    NSDateFormatter *dateFormatter;
 }
 
--(IBAction)onClose:(id)sender;
+-(IBAction)onSave:(id)sender;
 -(IBAction)closeKeyboard:(id)sender;
+-(IBAction)onChange:(id)sender;
 
 //set delegate from outside of topview
 @property (strong) id<SecondViewDelegate> delegate;

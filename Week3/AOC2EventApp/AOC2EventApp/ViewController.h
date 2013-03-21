@@ -14,4 +14,6 @@
     IBOutlet UIButton *addEvent;
     IBOutlet UITextView *eventList;
 }
+-(IBAction)onClick:(id)sender;
+
 @end
