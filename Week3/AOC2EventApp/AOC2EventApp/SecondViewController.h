@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @protocol SecondViewDelegate <NSObject>
 @required
 -(void)DidSave:(NSString*)titleEvent dateString:(NSString*)date;
@@ -20,6 +21,7 @@
     NSDate *eventDate;
     NSDateFormatter *dateFormatter;
     IBOutlet UIDatePicker *datePicker;
+    NSString *dateString;
 }
 
 -(IBAction)onSave:(id)sender;

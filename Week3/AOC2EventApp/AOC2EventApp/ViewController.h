@@ -15,5 +15,4 @@
     IBOutlet UITextView *eventList;
 }
 -(IBAction)onClick:(id)sender;
-
 @end

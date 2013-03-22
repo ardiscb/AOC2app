@@ -37,21 +37,27 @@
                 secondView.delegate = self;
                 [self presentViewController:secondView animated:true completion:nil];
             }
-            NSLog(@"You pressed the second view button. Did it appear?");
+            NSLog(@"You pressed the second view button.");
         }
     }
 }
 //on close of second view
 -(void)DidSave:(NSString*)titleEvent dateString:(NSString*)date;
 {
+
     //after second view closes -- saves event
+    //if event list is equal to the placeholder text
     if([eventList.text isEqualToString:@"Events listed here"])
     {
+        //set/save the first event
        eventList.text = [NSString stringWithFormat:@"%@ \n%@", titleEvent, date];
+        NSLog(@"Saved first event. Date=%@", date);
     }
     else
     {
-        eventList.text = [eventList.text stringByAppendingFormat:@"\n%@ \n%@", titleEvent, date];
+        //set/save all other new events
+        eventList.text = [eventList.text stringByAppendingFormat:@"\n\nNew Event:\n%@ \n%@", titleEvent, date];
+        NSLog(@"Saved all other events");
     }
     
 }

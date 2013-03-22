@@ -32,36 +32,43 @@
     eventDate = datePicker.date;
     datePicker.minimumDate = [NSDate date];
     NSLog(@"%@", eventDate);
+    
 //    NSLog(@"%@", datePicker.minimumDate);
 //    NSLog(@"Date set to current date. All others disabled?");
 }
+
+//closes keyboard
+-(IBAction)closeKeyboard:(id)sender {
+    [titleEvent resignFirstResponder];
+}
 -(IBAction)onSave:(id)sender
 {
-    //titleEvent.text is never == nil (else never gets hit) :( hmm.
     
     //if title and date is not empty
+    NSLog(@"%@ dateString=%@", eventDate, dateString);
     if(titleEvent.text.length >1)
     {
         if(delegate != nil)
         {
+            //dismiss second view
             [self dismissViewControllerAnimated:true completion:nil];
             //pass event title to view controller
             [delegate DidSave:titleEvent.text dateString:[dateFormatter stringFromDate:eventDate]];
+            
+            NSLog(@"In Second View: date=%@", [dateFormatter stringFromDate:eventDate]);
         }
     }
     else
     {
-        NSLog(@"You didn't enter an event title");
-        UIAlertView *emptyAlert = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Event title must not be empty. Please enter an event title." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        //alert user text field needs text
+        NSLog(@"You didn't enter an event title and/or date");
+        UIAlertView *emptyAlert = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Event title and date must not be empty. Please enter an event title and date." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         if(emptyAlert != nil)
         {
+            //show alert
             [emptyAlert show];
         }
     }
-}
-//closes keyboard
--(IBAction)closeKeyboard:(id)sender {
-    [titleEvent resignFirstResponder];
 }
 //date picker
 -(IBAction)onChange:(id)sender
@@ -81,9 +88,10 @@
             [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
         }
 //        NSLog(@"%@", [eventDate description]);
-        NSLog(@"%@", [dateFormatter stringFromDate:eventDate]);
+        NSLog(@"in on change %@", [dateFormatter stringFromDate:eventDate]);
     }
 }
+
 
 - (void)didReceiveMemoryWarning
 {
