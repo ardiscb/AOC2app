@@ -268,6 +268,7 @@
 		FAFBD9FF16F7DAE40049D0C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AOC2EventApp/AOC2EventApp-Prefix.pch";
 				INFOPLIST_FILE = "AOC2EventApp/AOC2EventApp-Info.plist";
@@ -279,6 +280,7 @@
 		FAFBDA0016F7DAE40049D0C9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AOC2EventApp/AOC2EventApp-Prefix.pch";
 				INFOPLIST_FILE = "AOC2EventApp/AOC2EventApp-Info.plist";
@@ -306,6 +308,7 @@
 				FAFBDA0016F7DAE40049D0C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
