@@ -53,7 +53,10 @@
     [swipeLabel addGestureRecognizer:addSwiper];
     
 }
-
+-(IBAction)onClear:(id)sender
+{
+    eventList.text = @"Events listed here";
+}
 -(IBAction)onSave:(id)sender
 {
     //set user defaults
