@@ -46,6 +46,7 @@
     [super viewWillAppear:animated];
 }
 
+
 //closes keyboard
 -(IBAction)closeKeyboard:(id)sender {
     [titleEvent resignFirstResponder];
@@ -84,10 +85,11 @@
         
     }
 }
+
 //saves events
 //-(IBAction)onSave:(id)sender
 //{
-//    
+//
 //    //if title and date is not empty
 //    NSLog(@"%@ dateString=%@", eventDate, dateString);
 //    if(titleEvent.text.length >1)
@@ -98,7 +100,7 @@
 //            [self dismissViewControllerAnimated:true completion:nil];
 //            //pass event title to view controller
 //            [delegate DidSave:titleEvent.text dateString:[dateFormatter stringFromDate:eventDate]];
-//            
+//
 //            NSLog(@"In Second View: date=%@", [dateFormatter stringFromDate:eventDate]);
 //        }
 //    }
