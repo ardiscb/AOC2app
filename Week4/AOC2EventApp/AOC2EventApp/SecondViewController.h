@@ -24,10 +24,8 @@
     
     IBOutlet UILabel *swipeLabel;
     UISwipeGestureRecognizer *closeSwiper;
-    
 }
 
-//-(IBAction)onSave:(id)sender;
 -(IBAction)closeKeyboard:(id)sender;
 -(IBAction)onChange:(id)sender;
 

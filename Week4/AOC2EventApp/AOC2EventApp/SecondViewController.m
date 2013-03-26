@@ -51,8 +51,10 @@
 -(IBAction)closeKeyboard:(id)sender {
     [titleEvent resignFirstResponder];
 }
+
 -(IBAction)onSwipe:(UISwipeGestureRecognizer*)recognizer
 {
+    //if user swipes left 
     if(recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
     {
         //close second view and add text to textView
@@ -86,37 +88,7 @@
     }
 }
 
-//saves events
-//-(IBAction)onSave:(id)sender
-//{
-//
-//    //if title and date is not empty
-//    NSLog(@"%@ dateString=%@", eventDate, dateString);
-//    if(titleEvent.text.length >1)
-//    {
-//        if(delegate != nil)
-//        {
-//            //dismiss second view
-//            [self dismissViewControllerAnimated:true completion:nil];
-//            //pass event title to view controller
-//            [delegate DidSave:titleEvent.text dateString:[dateFormatter stringFromDate:eventDate]];
-//
-//            NSLog(@"In Second View: date=%@", [dateFormatter stringFromDate:eventDate]);
-//        }
-//    }
-//    else
-//    {
-//        //alert user text field needs text and date
-//        NSLog(@"You didn't enter an event title and/or date");
-//        UIAlertView *emptyAlert = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Event title and date must not be empty. Please enter an event title and date." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-//        if(emptyAlert != nil)
-//        {
-//            //show alert
-//            [emptyAlert show];
-//        }
-//    }
-//}
-//date picker
+//on date picker change
 -(IBAction)onChange:(id)sender
 {
     eventDate = datePicker.date;
@@ -125,6 +97,7 @@
     datePicker = (UIDatePicker*)sender;
     if(eventDate != nil)
     {
+        //allocate formatter
         dateFormatter = [[NSDateFormatter alloc] init];
         if(dateFormatter != nil)
         {

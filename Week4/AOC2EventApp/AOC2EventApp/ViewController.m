@@ -24,6 +24,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    //allocate defaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if(defaults != nil)
     {
@@ -37,6 +38,7 @@
         }
         else
         {
+            //new - display default text
             eventList.text = @"Events listed here";
             [self.view addSubview:eventList];
         }
@@ -53,10 +55,13 @@
     [swipeLabel addGestureRecognizer:addSwiper];
     
 }
+//clear text in textView
 -(IBAction)onClear:(id)sender
 {
+    //set back to default text
     eventList.text = @"Events listed here";
 }
+//save events 
 -(IBAction)onSave:(id)sender
 {
     //set user defaults
@@ -82,7 +87,8 @@
     
     //set how long the animation should take
     [UIView setAnimationDuration:1.0f];
-
+    
+    //if user swipes right
     if(recognizer.direction == UISwipeGestureRecognizerDirectionRight)
     {
         //open second view to add event
@@ -97,10 +103,9 @@
     //end/commit animation
     [UIView commitAnimations];
 }
-//on close of second view
+//on close of second view - delegate protocol
 -(void)DidSave:(NSString*)titleEvent dateString:(NSString*)date;
 {
-
     //after second view closes -- saves event
     //if event list is equal to the placeholder text
     if([eventList.text isEqualToString:@"Events listed here"])
