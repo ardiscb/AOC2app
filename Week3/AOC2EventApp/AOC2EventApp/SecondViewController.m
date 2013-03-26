@@ -31,22 +31,21 @@
 	// Do any additional setup after loading the view.
     eventDate = datePicker.date;
     datePicker.minimumDate = [NSDate date];
-    NSLog(@"%@", eventDate);
-    
-//    NSLog(@"%@", datePicker.minimumDate);
-//    NSLog(@"Date set to current date. All others disabled?");
+    NSLog(@"view did load%@", eventDate);
 }
 
 //closes keyboard
 -(IBAction)closeKeyboard:(id)sender {
     [titleEvent resignFirstResponder];
 }
+//saves events
 -(IBAction)onSave:(id)sender
 {
     
     //if title and date is not empty
     NSLog(@"%@ dateString=%@", eventDate, dateString);
-    if(titleEvent.text.length >1)
+    dateString = [dateFormatter stringFromDate:eventDate];
+    if((titleEvent.text.length >1) && (dateString != NULL))
     {
         if(delegate != nil)
         {
@@ -60,7 +59,7 @@
     }
     else
     {
-        //alert user text field needs text
+        //alert user text field needs text and date
         NSLog(@"You didn't enter an event title and/or date");
         UIAlertView *emptyAlert = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Event title and date must not be empty. Please enter an event title and date." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         if(emptyAlert != nil)
