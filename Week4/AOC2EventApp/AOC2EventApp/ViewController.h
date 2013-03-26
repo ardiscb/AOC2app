@@ -11,8 +11,11 @@
 
 @interface ViewController : UIViewController <SecondViewDelegate>
 {
-    IBOutlet UIButton *addEvent;
     IBOutlet UITextView *eventList;
+    
+    IBOutlet UILabel *swipeLabel;
+    
+    UISwipeGestureRecognizer *addSwiper;
 }
--(IBAction)onClick:(id)sender;
+-(IBAction)onSwipe:(UISwipeGestureRecognizer*)recognizer;
 @end

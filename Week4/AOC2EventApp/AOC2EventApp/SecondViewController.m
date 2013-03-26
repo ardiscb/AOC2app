@@ -30,44 +30,90 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     eventDate = datePicker.date;
+    dateString = [dateFormatter stringFromDate:eventDate];
     datePicker.minimumDate = [NSDate date];
     NSLog(@"view did load%@", eventDate);
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    //allocate left swiper
+    closeSwiper = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe:)];
+    //set direction
+    closeSwiper.direction = UISwipeGestureRecognizerDirectionLeft;
+    //add swipe left gesture to label
+    [swipeLabel addGestureRecognizer:closeSwiper];
+    
+    [super viewWillAppear:animated];
 }
 
 //closes keyboard
 -(IBAction)closeKeyboard:(id)sender {
     [titleEvent resignFirstResponder];
 }
-//saves events
--(IBAction)onSave:(id)sender
+-(IBAction)onSwipe:(UISwipeGestureRecognizer*)recognizer
 {
-    
-    //if title and date is not empty
-    NSLog(@"%@ dateString=%@", eventDate, dateString);
-    if(titleEvent.text.length >1)
+    if(recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
     {
-        if(delegate != nil)
+        //close second view and add text to textView
+        //if title and date is not empty
+        NSLog(@"%@ dateString=%@", eventDate, dateString);
+        dateString = [dateFormatter stringFromDate:eventDate];
+        if((titleEvent.text.length >1) && (dateString != NULL))
         {
-            //dismiss second view
-            [self dismissViewControllerAnimated:true completion:nil];
-            //pass event title to view controller
-            [delegate DidSave:titleEvent.text dateString:[dateFormatter stringFromDate:eventDate]];
-            
-            NSLog(@"In Second View: date=%@", [dateFormatter stringFromDate:eventDate]);
+            if(delegate != nil)
+            {
+                //dismiss second view
+                [self dismissViewControllerAnimated:true completion:nil];
+                //pass event title to view controller
+                [delegate DidSave:titleEvent.text dateString:[dateFormatter stringFromDate:eventDate]];
+                
+                NSLog(@"In Second View: date=%@", [dateFormatter stringFromDate:eventDate]);
+            }
         }
-    }
-    else
-    {
-        //alert user text field needs text and date
-        NSLog(@"You didn't enter an event title and/or date");
-        UIAlertView *emptyAlert = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Event title and date must not be empty. Please enter an event title and date." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        if(emptyAlert != nil)
+        else
         {
-            //show alert
-            [emptyAlert show];
+            //alert user text field needs text and date
+            NSLog(@"You didn't enter an event title and/or date");
+            UIAlertView *emptyAlert = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Event title and date must not be empty. Please enter an event title and date." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            if(emptyAlert != nil)
+            {
+                //show alert
+                [emptyAlert show];
+            }
         }
+        
     }
 }
+//saves events
+//-(IBAction)onSave:(id)sender
+//{
+//    
+//    //if title and date is not empty
+//    NSLog(@"%@ dateString=%@", eventDate, dateString);
+//    if(titleEvent.text.length >1)
+//    {
+//        if(delegate != nil)
+//        {
+//            //dismiss second view
+//            [self dismissViewControllerAnimated:true completion:nil];
+//            //pass event title to view controller
+//            [delegate DidSave:titleEvent.text dateString:[dateFormatter stringFromDate:eventDate]];
+//            
+//            NSLog(@"In Second View: date=%@", [dateFormatter stringFromDate:eventDate]);
+//        }
+//    }
+//    else
+//    {
+//        //alert user text field needs text and date
+//        NSLog(@"You didn't enter an event title and/or date");
+//        UIAlertView *emptyAlert = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Event title and date must not be empty. Please enter an event title and date." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//        if(emptyAlert != nil)
+//        {
+//            //show alert
+//            [emptyAlert show];
+//        }
+//    }
+//}
 //date picker
 -(IBAction)onChange:(id)sender
 {

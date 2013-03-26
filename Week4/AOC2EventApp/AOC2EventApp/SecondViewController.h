@@ -15,18 +15,23 @@
 
 @interface SecondViewController : UIViewController <UITextFieldDelegate>
 {
-    IBOutlet UIButton *saveBtn;
     IBOutlet UITextField *titleEvent;
     id<SecondViewDelegate> delegate;
     NSDate *eventDate;
     NSDateFormatter *dateFormatter;
     IBOutlet UIDatePicker *datePicker;
     NSString *dateString;
+    
+    IBOutlet UILabel *swipeLabel;
+    UISwipeGestureRecognizer *closeSwiper;
+    
 }
 
--(IBAction)onSave:(id)sender;
+//-(IBAction)onSave:(id)sender;
 -(IBAction)closeKeyboard:(id)sender;
 -(IBAction)onChange:(id)sender;
+
+-(IBAction)onSwipe:(UISwipeGestureRecognizer*)recognizer;
 
 //set delegate from outside of topview
 @property (strong) id<SecondViewDelegate> delegate;

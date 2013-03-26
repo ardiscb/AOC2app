@@ -24,22 +24,40 @@
     eventList.text = @"Events listed here";
     [self.view addSubview:eventList];
 }
--(IBAction)onClick:(id)sender
+
+- (void)viewDidAppear:(BOOL)animated
 {
-    UIButton *button = (UIButton*)sender;
-    if(button != nil)
+    //allocate right swiper
+    addSwiper = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe:)];
+    //set direction
+    addSwiper.direction = UISwipeGestureRecognizerDirectionRight;
+    //add swipe right gesture to label
+    [swipeLabel addGestureRecognizer:addSwiper];
+}
+
+-(IBAction)onSwipe:(UISwipeGestureRecognizer*)recognizer
+{
+    //begin animation
+    [UIView beginAnimations:nil context:nil];
+    
+    //set how long the animation should take
+    [UIView setAnimationDuration:1.0f];
+
+    if(recognizer.direction == UISwipeGestureRecognizerDirectionRight)
     {
-        if(button.tag == ADD_EVENT)
+        //open second view to add event
+        SecondViewController *secondView = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
+        if(secondView != nil)
         {
-            SecondViewController *secondView = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
-            if(secondView != nil)
-            {
-                secondView.delegate = self;
-                [self presentViewController:secondView animated:true completion:nil];
-            }
-            NSLog(@"You pressed the second view button.");
+            secondView.delegate = self;
+            [self presentViewController:secondView animated:true completion:nil];
         }
+        NSLog(@"You pressed the second view button.");
+
+        
     }
+    //end/commit animation
+    [UIView commitAnimations];
 }
 //on close of second view
 -(void)DidSave:(NSString*)titleEvent dateString:(NSString*)date;
