@@ -5,8 +5,6 @@
 //  Created by Courtney Ardis on 3/18/13.
 //  Copyright (c) 2013 Courtney Ardis. All rights reserved.
 //
-//GitHub master
-//https://github.com/ardiscb/AOC2app/tree/master/Week4/AOC2EventApp
 
 #import "ViewController.h"
 #import "SecondViewController.h"
@@ -111,7 +109,7 @@
     if([eventList.text isEqualToString:@"Events listed here"])
     {
         //set/save the first event
-       eventList.text = [NSString stringWithFormat:@"%@ \n%@", titleEvent, date];
+       eventList.text = [NSString stringWithFormat:@"New Event:\n%@ \n%@", titleEvent, date];
         NSLog(@"Saved first event. Date=%@", date);
     }
     else
